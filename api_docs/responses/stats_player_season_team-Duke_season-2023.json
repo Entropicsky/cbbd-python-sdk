@@ -1,0 +1,917 @@
+[
+  {
+    "season": 2023,
+    "seasonLabel": "20222023",
+    "teamId": 72,
+    "team": "Duke",
+    "conference": "ACC",
+    "athleteId": 217,
+    "athleteSourceId": "4897108",
+    "name": "Spencer Hubbard",
+    "position": "G",
+    "games": 3,
+    "starts": 0,
+    "minutes": 9,
+    "points": 0,
+    "turnovers": 2,
+    "fouls": 2,
+    "assists": 0,
+    "steals": 1,
+    "blocks": 0,
+    "offensiveRating": 0,
+    "defensiveRating": 75,
+    "netRating": -75,
+    "PORPAG": -0.9,
+    "usage": 21.2,
+    "assistsTurnoverRatio": 0,
+    "offensiveReboundPct": 0,
+    "freeThrowRate": 0,
+    "effectiveFieldGoalPct": 0,
+    "trueShootingPct": 0,
+    "fieldGoals": {
+      "made": 0,
+      "attempted": 2,
+      "pct": 0
+    },
+    "twoPointFieldGoals": {
+      "made": 0,
+      "attempted": 1,
+      "pct": 0
+    },
+    "threePointFieldGoals": {
+      "made": 0,
+      "attempted": 1,
+      "pct": 0
+    },
+    "freeThrows": {
+      "made": 0,
+      "attempted": 0,
+      "pct": 0
+    },
+    "rebounds": {
+      "offensive": 0,
+      "defensive": 1,
+      "total": 1
+    },
+    "winShares": {
+      "offensive": -0.1,
+      "defensive": 0,
+      "total": -0.1,
+      "totalPer40": -0.444
+    }
+  },
+  {
+    "season": 2023,
+    "seasonLabel": "20222023",
+    "teamId": 72,
+    "team": "Duke",
+    "conference": "ACC",
+    "athleteId": 3455,
+    "athleteSourceId": "5105444",
+    "name": "Christian Reeves",
+    "position": "C",
+    "games": 13,
+    "starts": 0,
+    "minutes": 41,
+    "points": 20,
+    "turnovers": 3,
+    "fouls": 4,
+    "assists": 1,
+    "steals": 1,
+    "blocks": 0,
+    "offensiveRating": 130.1,
+    "defensiveRating": 101.4,
+    "netRating": 28.7,
+    "PORPAG": 0.5,
+    "usage": 20.8,
+    "assistsTurnoverRatio": 0.33,
+    "offensiveReboundPct": 69.2,
+    "freeThrowRate": 54.5,
+    "effectiveFieldGoalPct": 72.7,
+    "trueShootingPct": 0.7,
+    "fieldGoals": {
+      "made": 8,
+      "attempted": 11,
+      "pct": 72.7
+    },
+    "twoPointFieldGoals": {
+      "made": 8,
+      "attempted": 11,
+      "pct": 72.7
+    },
+    "threePointFieldGoals": {
+      "made": 0,
+      "attempted": 0,
+      "pct": 0
+    },
+    "freeThrows": {
+      "made": 4,
+      "attempted": 6,
+      "pct": 66.7
+    },
+    "rebounds": {
+      "offensive": 9,
+      "defensive": 4,
+      "total": 13
+    },
+    "winShares": {
+      "offensive": 0.2,
+      "defensive": 0.1,
+      "total": 0.3,
+      "totalPer40": 0.293
+    }
+  },
+  {
+    "season": 2023,
+    "seasonLabel": "20222023",
+    "teamId": 72,
+    "team": "Duke",
+    "conference": "ACC",
+    "athleteId": 19898,
+    "athleteSourceId": "4398003",
+    "name": "Max Johns",
+    "position": "G",
+    "games": 9,
+    "starts": 0,
+    "minutes": 27,
+    "points": 0,
+    "turnovers": 2,
+    "fouls": 2,
+    "assists": 2,
+    "steals": 2,
+    "blocks": 0,
+    "offensiveRating": 43.5,
+    "defensiveRating": 80.8,
+    "netRating": -37.3,
+    "PORPAG": -0.2,
+    "usage": 7.5,
+    "assistsTurnoverRatio": 1,
+    "offensiveReboundPct": 25,
+    "freeThrowRate": 0,
+    "effectiveFieldGoalPct": 0,
+    "trueShootingPct": 0,
+    "fieldGoals": {
+      "made": 0,
+      "attempted": 2,
+      "pct": 0
+    },
+    "twoPointFieldGoals": {
+      "made": 0,
+      "attempted": 2,
+      "pct": 0
+    },
+    "threePointFieldGoals": {
+      "made": 0,
+      "attempted": 0,
+      "pct": 0
+    },
+    "freeThrows": {
+      "made": 0,
+      "attempted": 0,
+      "pct": 0
+    },
+    "rebounds": {
+      "offensive": 1,
+      "defensive": 3,
+      "total": 4
+    },
+    "winShares": {
+      "offensive": -0.1,
+      "defensive": 0.1,
+      "total": 0,
+      "totalPer40": 0
+    }
+  },
+  {
+    "season": 2023,
+    "seasonLabel": "20222023",
+    "teamId": 72,
+    "team": "Duke",
+    "conference": "ACC",
+    "athleteId": 15223,
+    "athleteSourceId": "4684793",
+    "name": "Kyle Filipowski",
+    "position": "F",
+    "games": 36,
+    "starts": 36,
+    "minutes": 1050,
+    "points": 543,
+    "turnovers": 89,
+    "fouls": 93,
+    "assists": 56,
+    "steals": 47,
+    "blocks": 26,
+    "offensiveRating": 107.1,
+    "defensiveRating": 94.3,
+    "netRating": 12.8,
+    "PORPAG": 2.7,
+    "usage": 29.6,
+    "assistsTurnoverRatio": 0.63,
+    "offensiveReboundPct": 28,
+    "freeThrowRate": 39.6,
+    "effectiveFieldGoalPct": 48.1,
+    "trueShootingPct": 0.5,
+    "fieldGoals": {
+      "made": 189,
+      "attempted": 429,
+      "pct": 44.1
+    },
+    "twoPointFieldGoals": {
+      "made": 154,
+      "attempted": 305,
+      "pct": 50.5
+    },
+    "threePointFieldGoals": {
+      "made": 35,
+      "attempted": 124,
+      "pct": 28.2
+    },
+    "freeThrows": {
+      "made": 130,
+      "attempted": 170,
+      "pct": 76.5
+    },
+    "rebounds": {
+      "offensive": 90,
+      "defensive": 232,
+      "total": 322
+    },
+    "winShares": {
+      "offensive": 2.3,
+      "defensive": 2.3,
+      "total": 4.6,
+      "totalPer40": 0.175
+    }
+  },
+  {
+    "season": 2023,
+    "seasonLabel": "20222023",
+    "teamId": 72,
+    "team": "Duke",
+    "conference": "ACC",
+    "athleteId": 5495,
+    "athleteSourceId": "4433285",
+    "name": "Mark Mitchell",
+    "position": "G",
+    "games": 35,
+    "starts": 35,
+    "minutes": 949,
+    "points": 318,
+    "turnovers": 46,
+    "fouls": 35,
+    "assists": 42,
+    "steals": 22,
+    "blocks": 18,
+    "offensiveRating": 112.3,
+    "defensiveRating": 103.1,
+    "netRating": 9.2,
+    "PORPAG": 2,
+    "usage": 18.2,
+    "assistsTurnoverRatio": 0.91,
+    "offensiveReboundPct": 29.7,
+    "freeThrowRate": 38.3,
+    "effectiveFieldGoalPct": 50.8,
+    "trueShootingPct": 0.6,
+    "fieldGoals": {
+      "made": 114,
+      "attempted": 243,
+      "pct": 46.9
+    },
+    "twoPointFieldGoals": {
+      "made": 95,
+      "attempted": 189,
+      "pct": 50.3
+    },
+    "threePointFieldGoals": {
+      "made": 19,
+      "attempted": 54,
+      "pct": 35.2
+    },
+    "freeThrows": {
+      "made": 71,
+      "attempted": 93,
+      "pct": 76.3
+    },
+    "rebounds": {
+      "offensive": 47,
+      "defensive": 111,
+      "total": 158
+    },
+    "winShares": {
+      "offensive": 1.7,
+      "defensive": 1.3,
+      "total": 3,
+      "totalPer40": 0.126
+    }
+  },
+  {
+    "season": 2023,
+    "seasonLabel": "20222023",
+    "teamId": 72,
+    "team": "Duke",
+    "conference": "ACC",
+    "athleteId": 19897,
+    "athleteSourceId": "4397971",
+    "name": "Kale Catchings",
+    "position": "F",
+    "games": 10,
+    "starts": 0,
+    "minutes": 33,
+    "points": 8,
+    "turnovers": 1,
+    "fouls": 3,
+    "assists": 2,
+    "steals": 1,
+    "blocks": 1,
+    "offensiveRating": 97.2,
+    "defensiveRating": 88.1,
+    "netRating": 9.1,
+    "PORPAG": 0.1,
+    "usage": 17.4,
+    "assistsTurnoverRatio": 2,
+    "offensiveReboundPct": 50,
+    "freeThrowRate": 33.3,
+    "effectiveFieldGoalPct": 44.4,
+    "trueShootingPct": 0.4,
+    "fieldGoals": {
+      "made": 4,
+      "attempted": 9,
+      "pct": 44.4
+    },
+    "twoPointFieldGoals": {
+      "made": 4,
+      "attempted": 8,
+      "pct": 50
+    },
+    "threePointFieldGoals": {
+      "made": 0,
+      "attempted": 1,
+      "pct": 0
+    },
+    "freeThrows": {
+      "made": 0,
+      "attempted": 3,
+      "pct": 0
+    },
+    "rebounds": {
+      "offensive": 4,
+      "defensive": 4,
+      "total": 8
+    },
+    "winShares": {
+      "offensive": 0,
+      "defensive": 0.1,
+      "total": 0.1,
+      "totalPer40": 0.121
+    }
+  },
+  {
+    "season": 2023,
+    "seasonLabel": "20222023",
+    "teamId": 72,
+    "team": "Duke",
+    "conference": "ACC",
+    "athleteId": 15224,
+    "athleteSourceId": "4397232",
+    "name": "Ryan Young",
+    "position": "C",
+    "games": 36,
+    "starts": 9,
+    "minutes": 636,
+    "points": 230,
+    "turnovers": 42,
+    "fouls": 77,
+    "assists": 48,
+    "steals": 9,
+    "blocks": 17,
+    "offensiveRating": 129.9,
+    "defensiveRating": 100.5,
+    "netRating": 29.4,
+    "PORPAG": 2,
+    "usage": 16.5,
+    "assistsTurnoverRatio": 1.14,
+    "offensiveReboundPct": 41.7,
+    "freeThrowRate": 49.2,
+    "effectiveFieldGoalPct": 68.5,
+    "trueShootingPct": 0.7,
+    "fieldGoals": {
+      "made": 89,
+      "attempted": 130,
+      "pct": 68.5
+    },
+    "twoPointFieldGoals": {
+      "made": 89,
+      "attempted": 130,
+      "pct": 68.5
+    },
+    "threePointFieldGoals": {
+      "made": 0,
+      "attempted": 0,
+      "pct": 0
+    },
+    "freeThrows": {
+      "made": 52,
+      "attempted": 64,
+      "pct": 81.3
+    },
+    "rebounds": {
+      "offensive": 83,
+      "defensive": 116,
+      "total": 199
+    },
+    "winShares": {
+      "offensive": 2.1,
+      "defensive": 1,
+      "total": 3.1,
+      "totalPer40": 0.195
+    }
+  },
+  {
+    "season": 2023,
+    "seasonLabel": "20222023",
+    "teamId": 72,
+    "team": "Duke",
+    "conference": "ACC",
+    "athleteId": 5705,
+    "athleteSourceId": "4712846",
+    "name": "Jaden Schutt",
+    "position": "G",
+    "games": 14,
+    "starts": 0,
+    "minutes": 97,
+    "points": 29,
+    "turnovers": 0,
+    "fouls": 4,
+    "assists": 6,
+    "steals": 1,
+    "blocks": 2,
+    "offensiveRating": 124.6,
+    "defensiveRating": 98,
+    "netRating": 26.6,
+    "PORPAG": 0.7,
+    "usage": 15.7,
+    "assistsTurnoverRatio": null,
+    "offensiveReboundPct": 20,
+    "freeThrowRate": 14.3,
+    "effectiveFieldGoalPct": 48.2,
+    "trueShootingPct": 0.5,
+    "fieldGoals": {
+      "made": 10,
+      "attempted": 28,
+      "pct": 35.7
+    },
+    "twoPointFieldGoals": {
+      "made": 3,
+      "attempted": 8,
+      "pct": 37.5
+    },
+    "threePointFieldGoals": {
+      "made": 7,
+      "attempted": 20,
+      "pct": 35
+    },
+    "freeThrows": {
+      "made": 2,
+      "attempted": 4,
+      "pct": 50
+    },
+    "rebounds": {
+      "offensive": 3,
+      "defensive": 12,
+      "total": 15
+    },
+    "winShares": {
+      "offensive": 0.2,
+      "defensive": 0.2,
+      "total": 0.4,
+      "totalPer40": 0.165
+    }
+  },
+  {
+    "season": 2023,
+    "seasonLabel": "20222023",
+    "teamId": 72,
+    "team": "Duke",
+    "conference": "ACC",
+    "athleteId": 207,
+    "athleteSourceId": "5023693",
+    "name": "Tyrese Proctor",
+    "position": "G",
+    "games": 36,
+    "starts": 34,
+    "minutes": 1056,
+    "points": 338,
+    "turnovers": 58,
+    "fouls": 59,
+    "assists": 119,
+    "steals": 22,
+    "blocks": 4,
+    "offensiveRating": 109,
+    "defensiveRating": 106,
+    "netRating": 3,
+    "PORPAG": 2,
+    "usage": 19.4,
+    "assistsTurnoverRatio": 2.05,
+    "offensiveReboundPct": 15.2,
+    "freeThrowRate": 23.2,
+    "effectiveFieldGoalPct": 45.9,
+    "trueShootingPct": 0.5,
+    "fieldGoals": {
+      "made": 115,
+      "attempted": 302,
+      "pct": 38.1
+    },
+    "twoPointFieldGoals": {
+      "made": 68,
+      "attempted": 155,
+      "pct": 43.9
+    },
+    "threePointFieldGoals": {
+      "made": 47,
+      "attempted": 147,
+      "pct": 32
+    },
+    "freeThrows": {
+      "made": 61,
+      "attempted": 70,
+      "pct": 87.1
+    },
+    "rebounds": {
+      "offensive": 17,
+      "defensive": 95,
+      "total": 112
+    },
+    "winShares": {
+      "offensive": 1.7,
+      "defensive": 1.2,
+      "total": 2.9,
+      "totalPer40": 0.11
+    }
+  },
+  {
+    "season": 2023,
+    "seasonLabel": "20222023",
+    "teamId": 72,
+    "team": "Duke",
+    "conference": "ACC",
+    "athleteId": 910,
+    "athleteSourceId": "4683735",
+    "name": "Jaylen Blakes",
+    "position": "G",
+    "games": 32,
+    "starts": 2,
+    "minutes": 421,
+    "points": 105,
+    "turnovers": 19,
+    "fouls": 42,
+    "assists": 39,
+    "steals": 18,
+    "blocks": 5,
+    "offensiveRating": 104.9,
+    "defensiveRating": 101.9,
+    "netRating": 3,
+    "PORPAG": 0.6,
+    "usage": 15.9,
+    "assistsTurnoverRatio": 2.05,
+    "offensiveReboundPct": 19.6,
+    "freeThrowRate": 39.8,
+    "effectiveFieldGoalPct": 43.5,
+    "trueShootingPct": 0.5,
+    "fieldGoals": {
+      "made": 33,
+      "attempted": 93,
+      "pct": 35.5
+    },
+    "twoPointFieldGoals": {
+      "made": 18,
+      "attempted": 49,
+      "pct": 36.7
+    },
+    "threePointFieldGoals": {
+      "made": 15,
+      "attempted": 44,
+      "pct": 34.1
+    },
+    "freeThrows": {
+      "made": 24,
+      "attempted": 37,
+      "pct": 64.9
+    },
+    "rebounds": {
+      "offensive": 9,
+      "defensive": 37,
+      "total": 46
+    },
+    "winShares": {
+      "offensive": 0.4,
+      "defensive": 0.6,
+      "total": 1,
+      "totalPer40": 0.095
+    }
+  },
+  {
+    "season": 2023,
+    "seasonLabel": "20222023",
+    "teamId": 72,
+    "team": "Duke",
+    "conference": "ACC",
+    "athleteId": 215,
+    "athleteSourceId": "4897107",
+    "name": "Stanley Borden",
+    "position": "C",
+    "games": 1,
+    "starts": 0,
+    "minutes": 1,
+    "points": 0,
+    "turnovers": 0,
+    "fouls": 0,
+    "assists": 0,
+    "steals": 0,
+    "blocks": 0,
+    "offensiveRating": null,
+    "defensiveRating": 24.6,
+    "netRating": null,
+    "PORPAG": null,
+    "usage": 0,
+    "assistsTurnoverRatio": null,
+    "offensiveReboundPct": 0,
+    "freeThrowRate": null,
+    "effectiveFieldGoalPct": null,
+    "trueShootingPct": null,
+    "fieldGoals": {
+      "made": 0,
+      "attempted": 0,
+      "pct": 0
+    },
+    "twoPointFieldGoals": {
+      "made": 0,
+      "attempted": 0,
+      "pct": 0
+    },
+    "threePointFieldGoals": {
+      "made": 0,
+      "attempted": 0,
+      "pct": 0
+    },
+    "freeThrows": {
+      "made": 0,
+      "attempted": 0,
+      "pct": 0
+    },
+    "rebounds": {
+      "offensive": 0,
+      "defensive": 1,
+      "total": 1
+    },
+    "winShares": {
+      "offensive": null,
+      "defensive": 0,
+      "total": null,
+      "totalPer40": null
+    }
+  },
+  {
+    "season": 2023,
+    "seasonLabel": "20222023",
+    "teamId": 72,
+    "team": "Duke",
+    "conference": "ACC",
+    "athleteId": 19900,
+    "athleteSourceId": "4432735",
+    "name": "Dariq Whitehead",
+    "position": "F",
+    "games": 28,
+    "starts": 7,
+    "minutes": 579,
+    "points": 231,
+    "turnovers": 39,
+    "fouls": 42,
+    "assists": 27,
+    "steals": 21,
+    "blocks": 6,
+    "offensiveRating": 103.9,
+    "defensiveRating": 105.8,
+    "netRating": -1.9,
+    "PORPAG": 1.2,
+    "usage": 23,
+    "assistsTurnoverRatio": 0.69,
+    "offensiveReboundPct": 19.1,
+    "freeThrowRate": 14.7,
+    "effectiveFieldGoalPct": 52.8,
+    "trueShootingPct": 0.6,
+    "fieldGoals": {
+      "made": 83,
+      "attempted": 197,
+      "pct": 42.1
+    },
+    "twoPointFieldGoals": {
+      "made": 41,
+      "attempted": 99,
+      "pct": 41.4
+    },
+    "threePointFieldGoals": {
+      "made": 42,
+      "attempted": 98,
+      "pct": 42.9
+    },
+    "freeThrows": {
+      "made": 23,
+      "attempted": 29,
+      "pct": 79.3
+    },
+    "rebounds": {
+      "offensive": 13,
+      "defensive": 55,
+      "total": 68
+    },
+    "winShares": {
+      "offensive": 0.7,
+      "defensive": 0.7,
+      "total": 1.4,
+      "totalPer40": 0.097
+    }
+  },
+  {
+    "season": 2023,
+    "seasonLabel": "20222023",
+    "teamId": 72,
+    "team": "Duke",
+    "conference": "ACC",
+    "athleteId": 19899,
+    "athleteSourceId": "4280073",
+    "name": "Jacob Grandison",
+    "position": "G",
+    "games": 36,
+    "starts": 0,
+    "minutes": 566,
+    "points": 158,
+    "turnovers": 19,
+    "fouls": 36,
+    "assists": 48,
+    "steals": 14,
+    "blocks": 2,
+    "offensiveRating": 119.1,
+    "defensiveRating": 104.8,
+    "netRating": 14.3,
+    "PORPAG": 1.2,
+    "usage": 15.1,
+    "assistsTurnoverRatio": 2.53,
+    "offensiveReboundPct": 20.5,
+    "freeThrowRate": 13.2,
+    "effectiveFieldGoalPct": 52.2,
+    "trueShootingPct": 0.5,
+    "fieldGoals": {
+      "made": 55,
+      "attempted": 136,
+      "pct": 40.4
+    },
+    "twoPointFieldGoals": {
+      "made": 23,
+      "attempted": 41,
+      "pct": 56.1
+    },
+    "threePointFieldGoals": {
+      "made": 32,
+      "attempted": 95,
+      "pct": 33.7
+    },
+    "freeThrows": {
+      "made": 16,
+      "attempted": 18,
+      "pct": 88.9
+    },
+    "rebounds": {
+      "offensive": 15,
+      "defensive": 58,
+      "total": 73
+    },
+    "winShares": {
+      "offensive": 1.1,
+      "defensive": 0.7,
+      "total": 1.8,
+      "totalPer40": 0.127
+    }
+  },
+  {
+    "season": 2023,
+    "seasonLabel": "20222023",
+    "teamId": 72,
+    "team": "Duke",
+    "conference": "ACC",
+    "athleteId": 19901,
+    "athleteSourceId": "4683688",
+    "name": "Dereck Lively II",
+    "position": "C",
+    "games": 34,
+    "starts": 27,
+    "minutes": 700,
+    "points": 177,
+    "turnovers": 23,
+    "fouls": 92,
+    "assists": 37,
+    "steals": 17,
+    "blocks": 82,
+    "offensiveRating": 131,
+    "defensiveRating": 93.9,
+    "netRating": 37.1,
+    "PORPAG": 1.7,
+    "usage": 11.6,
+    "assistsTurnoverRatio": 1.61,
+    "offensiveReboundPct": 39.1,
+    "freeThrowRate": 29.9,
+    "effectiveFieldGoalPct": 66.7,
+    "trueShootingPct": 0.7,
+    "fieldGoals": {
+      "made": 77,
+      "attempted": 117,
+      "pct": 65.8
+    },
+    "twoPointFieldGoals": {
+      "made": 75,
+      "attempted": 104,
+      "pct": 72.1
+    },
+    "threePointFieldGoals": {
+      "made": 2,
+      "attempted": 13,
+      "pct": 15.4
+    },
+    "freeThrows": {
+      "made": 21,
+      "attempted": 35,
+      "pct": 60
+    },
+    "rebounds": {
+      "offensive": 72,
+      "defensive": 112,
+      "total": 184
+    },
+    "winShares": {
+      "offensive": 1.7,
+      "defensive": 1.6,
+      "total": 3.3,
+      "totalPer40": 0.189
+    }
+  },
+  {
+    "season": 2023,
+    "seasonLabel": "20222023",
+    "teamId": 72,
+    "team": "Duke",
+    "conference": "ACC",
+    "athleteId": 160,
+    "athleteSourceId": "4433135",
+    "name": "Jeremy Roach",
+    "position": "G",
+    "games": 32,
+    "starts": 30,
+    "minutes": 1060,
+    "points": 435,
+    "turnovers": 71,
+    "fouls": 58,
+    "assists": 99,
+    "steals": 28,
+    "blocks": 0,
+    "offensiveRating": 106.7,
+    "defensiveRating": 107.9,
+    "netRating": -1.2,
+    "PORPAG": 2.4,
+    "usage": 24.2,
+    "assistsTurnoverRatio": 1.39,
+    "offensiveReboundPct": 26.6,
+    "freeThrowRate": 24.4,
+    "effectiveFieldGoalPct": 48.8,
+    "trueShootingPct": 0.5,
+    "fieldGoals": {
+      "made": 159,
+      "attempted": 373,
+      "pct": 42.6
+    },
+    "twoPointFieldGoals": {
+      "made": 113,
+      "attempted": 239,
+      "pct": 47.3
+    },
+    "threePointFieldGoals": {
+      "made": 46,
+      "attempted": 134,
+      "pct": 34.3
+    },
+    "freeThrows": {
+      "made": 71,
+      "attempted": 91,
+      "pct": 78
+    },
+    "rebounds": {
+      "offensive": 21,
+      "defensive": 58,
+      "total": 79
+    },
+    "winShares": {
+      "offensive": 1.8,
+      "defensive": 1,
+      "total": 2.8,
+      "totalPer40": 0.106
+    }
+  }
+]

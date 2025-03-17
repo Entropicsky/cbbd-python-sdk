@@ -1,0 +1,240 @@
+[
+  {
+    "id": 1,
+    "sourceId": "3",
+    "name": "Atlantic 10 Conference",
+    "abbreviation": "A-10",
+    "shortName": "A-10"
+  },
+  {
+    "id": 2,
+    "sourceId": "2",
+    "name": "Atlantic Coast Conference",
+    "abbreviation": "ACC",
+    "shortName": "ACC"
+  },
+  {
+    "id": 3,
+    "sourceId": "46",
+    "name": "ASUN Conference",
+    "abbreviation": "ASUN",
+    "shortName": "ASUN"
+  },
+  {
+    "id": 4,
+    "sourceId": "1",
+    "name": "America East Conference",
+    "abbreviation": "Am. East",
+    "shortName": "Am. East"
+  },
+  {
+    "id": 5,
+    "sourceId": "62",
+    "name": "American Athletic Conference",
+    "abbreviation": "American",
+    "shortName": "American"
+  },
+  {
+    "id": 6,
+    "sourceId": "8",
+    "name": "Big 12 Conference",
+    "abbreviation": "Big 12",
+    "shortName": "Big 12"
+  },
+  {
+    "id": 7,
+    "sourceId": "4",
+    "name": "Big East Conference",
+    "abbreviation": "Big East",
+    "shortName": "Big East"
+  },
+  {
+    "id": 8,
+    "sourceId": "5",
+    "name": "Big Sky Conference",
+    "abbreviation": "Big Sky",
+    "shortName": "Big Sky"
+  },
+  {
+    "id": 9,
+    "sourceId": "6",
+    "name": "Big South Conference",
+    "abbreviation": "Big South",
+    "shortName": "Big South"
+  },
+  {
+    "id": 10,
+    "sourceId": "7",
+    "name": "Big Ten Conference",
+    "abbreviation": "Big Ten",
+    "shortName": "Big Ten"
+  },
+  {
+    "id": 11,
+    "sourceId": "9",
+    "name": "Big West Conference",
+    "abbreviation": "Big West",
+    "shortName": "Big West"
+  },
+  {
+    "id": 12,
+    "sourceId": "10",
+    "name": "Coastal Athletic Association",
+    "abbreviation": "CAA",
+    "shortName": "CAA"
+  },
+  {
+    "id": 13,
+    "sourceId": "11",
+    "name": "Conference USA",
+    "abbreviation": "CUSA",
+    "shortName": "CUSA"
+  },
+  {
+    "id": 14,
+    "sourceId": "45",
+    "name": "Horizon League",
+    "abbreviation": "Horizon",
+    "shortName": "Horizon"
+  },
+  {
+    "id": 15,
+    "sourceId": "12",
+    "name": "Ivy League",
+    "abbreviation": "Ivy",
+    "shortName": "Ivy"
+  },
+  {
+    "id": 16,
+    "sourceId": "13",
+    "name": "Metro Atlantic Athletic Conference",
+    "abbreviation": "MAAC",
+    "shortName": "MAAC"
+  },
+  {
+    "id": 17,
+    "sourceId": "14",
+    "name": "Mid-American Conference",
+    "abbreviation": "MAC",
+    "shortName": "MAC"
+  },
+  {
+    "id": 18,
+    "sourceId": "16",
+    "name": "Mid-Eastern Athletic Conference",
+    "abbreviation": "MEAC",
+    "shortName": "MEAC"
+  },
+  {
+    "id": 19,
+    "sourceId": "18",
+    "name": "Missouri Valley Conference",
+    "abbreviation": "MVC",
+    "shortName": "MVC"
+  },
+  {
+    "id": 20,
+    "sourceId": "44",
+    "name": "Mountain West Conference",
+    "abbreviation": "Mountain West",
+    "shortName": "Mountain West"
+  },
+  {
+    "id": 21,
+    "sourceId": "19",
+    "name": "Northeast Conference",
+    "abbreviation": "NEC",
+    "shortName": "NEC"
+  },
+  {
+    "id": 22,
+    "sourceId": "20",
+    "name": "Ohio Valley Conference",
+    "abbreviation": "OVC",
+    "shortName": "OVC"
+  },
+  {
+    "id": 23,
+    "sourceId": "22",
+    "name": "Patriot League",
+    "abbreviation": "Patriot",
+    "shortName": "Patriot"
+  },
+  {
+    "id": 24,
+    "sourceId": "23",
+    "name": "Southeastern Conference",
+    "abbreviation": "SEC",
+    "shortName": "SEC"
+  },
+  {
+    "id": 25,
+    "sourceId": "26",
+    "name": "Southwestern Athletic Conference",
+    "abbreviation": "SWAC",
+    "shortName": "SWAC"
+  },
+  {
+    "id": 26,
+    "sourceId": "24",
+    "name": "Southern Conference",
+    "abbreviation": "SoCon",
+    "shortName": "SoCon"
+  },
+  {
+    "id": 27,
+    "sourceId": "25",
+    "name": "Southland Conference",
+    "abbreviation": "Southland",
+    "shortName": "Southland"
+  },
+  {
+    "id": 28,
+    "sourceId": "49",
+    "name": "Summit League",
+    "abbreviation": "Summit",
+    "shortName": "Summit"
+  },
+  {
+    "id": 29,
+    "sourceId": "27",
+    "name": "Sun Belt Conference",
+    "abbreviation": "Sun Belt",
+    "shortName": "Sun Belt"
+  },
+  {
+    "id": 30,
+    "sourceId": "30",
+    "name": "Western Athletic Conference",
+    "abbreviation": "WAC",
+    "shortName": "WAC"
+  },
+  {
+    "id": 31,
+    "sourceId": "29",
+    "name": "West Coast Conference",
+    "abbreviation": "WCC",
+    "shortName": "WCC"
+  },
+  {
+    "id": 32,
+    "sourceId": "43",
+    "name": "Division I Independents",
+    "abbreviation": "Indep.",
+    "shortName": "Indep."
+  },
+  {
+    "id": 33,
+    "sourceId": "21",
+    "name": "Pac-12 Conference",
+    "abbreviation": "Pac-12",
+    "shortName": "Pac-12"
+  },
+  {
+    "id": 34,
+    "sourceId": "57",
+    "name": "Great West",
+    "abbreviation": "Great West",
+    "shortName": "Great West"
+  }
+]

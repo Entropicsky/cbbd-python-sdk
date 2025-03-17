@@ -1,0 +1,62 @@
+[
+  {
+    "id": 101,
+    "name": "John Smith",
+    "position": "G",
+    "jersey": 1,
+    "height": "6-2",
+    "weight": 185,
+    "year": "SR",
+    "hometown": "Charlotte",
+    "homeState": "NC",
+    "homeCountry": "USA"
+  },
+  {
+    "id": 102,
+    "name": "Michael Johnson",
+    "position": "F",
+    "jersey": 2,
+    "height": "6-8",
+    "weight": 215,
+    "year": "JR",
+    "hometown": "Atlanta",
+    "homeState": "GA",
+    "homeCountry": "USA"
+  },
+  {
+    "id": 103,
+    "name": "David Williams",
+    "position": "C",
+    "jersey": 3,
+    "height": "7-0",
+    "weight": 250,
+    "year": "SO",
+    "hometown": "Chicago",
+    "homeState": "IL",
+    "homeCountry": "USA"
+  },
+  {
+    "id": 104,
+    "name": "James Brown",
+    "position": "G",
+    "jersey": 4,
+    "height": "6-4",
+    "weight": 195,
+    "year": "FR",
+    "hometown": "New York",
+    "homeState": "NY",
+    "homeCountry": "USA"
+  },
+  {
+    "id": 105,
+    "name": "Robert Davis",
+    "position": "F",
+    "jersey": 5,
+    "height": "6-7",
+    "weight": 210,
+    "year": "SR",
+    "hometown": "Los Angeles",
+    "homeState": "CA",
+    "homeCountry": "USA"
+  }
+] 

@@ -1,0 +1,3296 @@
+College Basketball Data API
+ 1.20.0 
+OAS 3.0
+This API is in limited Beta for Patreon subscribers. It may have bugs and is subject to changes. API keys can be acquired from the CollegeFootballData.com website.
+
+Contact the developer
+MIT
+Servers
+
+https://api.collegebasketballdata.com/
+
+Authorize
+games
+Games scores and statistics
+
+
+
+GET
+/games
+
+
+Returns information on the first 3000 games that match the provided filters, ordered by start date.
+
+Parameters
+Try it out
+Name	Description
+startDateRange
+string($date-time)
+(query)
+Optional start timestamp in ISO 8601 format
+
+startDateRange
+endDateRange
+string($date-time)
+(query)
+Optional end timestamp in ISO 8601 format
+
+endDateRange
+team
+string
+(query)
+Optional team name filter
+
+team
+conference
+string
+(query)
+Optional conference abbreviation filter
+
+conference
+season
+integer($int32)
+(query)
+Optional season filter
+
+season
+seasonType
+string
+(query)
+Optional season type filter
+
+Available values : postseason, preseason, regular
+
+
+--
+status
+string
+(query)
+Optional game status filter
+
+Available values : scheduled, in_progress, final, postponed, cancelled
+
+
+--
+tournament
+string
+(query)
+Optional tournament filter (e.g. NCAA, NIT, etc)
+
+tournament
+Responses
+Code	Description	Links
+200	
+Ok
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "id": 0,
+    "sourceId": "string",
+    "seasonLabel": "string",
+    "season": 0,
+    "seasonType": "postseason",
+    "startDate": "2025-03-17T00:03:21.438Z",
+    "startTimeTbd": true,
+    "neutralSite": true,
+    "conferenceGame": true,
+    "gameType": "string",
+    "tournament": "string",
+    "gameNotes": "string",
+    "status": "scheduled",
+    "attendance": 0,
+    "homeTeamId": 0,
+    "homeTeam": "string",
+    "homeConferenceId": 0,
+    "homeConference": "string",
+    "homeSeed": 0,
+    "homePoints": 0,
+    "homePeriodPoints": [
+      0
+    ],
+    "homeWinner": true,
+    "awayTeamId": 0,
+    "awayTeam": "string",
+    "awayConferenceId": 0,
+    "awayConference": "string",
+    "awaySeed": 0,
+    "awayPoints": 0,
+    "awayPeriodPoints": [
+      0
+    ],
+    "awayWinner": true,
+    "excitement": 0,
+    "venueId": 0,
+    "venue": "string",
+    "city": "string",
+    "state": "string"
+  }
+]
+No links
+
+GET
+/games/media
+
+
+Returns broadcast information on the first 3000 games that match the provided filters, ordered by start date.
+
+Parameters
+Try it out
+Name	Description
+startDateRange
+string($date-time)
+(query)
+Optional start timestamp in ISO 8601 format
+
+startDateRange
+endDateRange
+string($date-time)
+(query)
+Optional end timestamp in ISO 8601 format
+
+endDateRange
+team
+string
+(query)
+Optional team name filter
+
+team
+conference
+string
+(query)
+Optional conference abbreviation filter
+
+conference
+season
+number($double)
+(query)
+Optional season filter
+
+season
+seasonType
+string
+(query)
+Optional season type filter
+
+Available values : postseason, preseason, regular
+
+
+--
+tournament
+string
+(query)
+Optional tournament filter (e.g. NCAA, NIT, etc)
+
+tournament
+Responses
+Code	Description	Links
+200	
+Ok
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "gameId": 0,
+    "season": 0,
+    "seasonLabel": "string",
+    "seasonType": "postseason",
+    "tournament": "string",
+    "startDate": "2025-03-17T00:03:21.440Z",
+    "startTimeTbd": true,
+    "homeTeamId": 0,
+    "homeTeam": "string",
+    "homeConference": "string",
+    "awayTeamId": 0,
+    "awayTeam": "string",
+    "awayConference": "string",
+    "neutralSite": true,
+    "conferenceGame": true,
+    "gameType": "string",
+    "notes": "string",
+    "broadcasts": [
+      {
+        "broadcastName": "string",
+        "broadcastType": "string"
+      }
+    ]
+  }
+]
+No links
+
+GET
+/games/teams
+
+
+Returns team box score statistics and metrics on the first 3000 games that match the provided filters, ordered by start date.
+
+Parameters
+Try it out
+Name	Description
+startDateRange
+string($date-time)
+(query)
+Optional start timestamp in ISO 8601 format
+
+startDateRange
+endDateRange
+string($date-time)
+(query)
+Optional end timestamp in ISO 8601 format
+
+endDateRange
+team
+string
+(query)
+Optional team name filter
+
+team
+conference
+string
+(query)
+Optional conference abbreviation filter
+
+conference
+season
+number($double)
+(query)
+Optional season filter
+
+season
+seasonType
+string
+(query)
+Optional season type filter
+
+Available values : postseason, preseason, regular
+
+
+--
+tournament
+string
+(query)
+Optional tournament filter (e.g. NCAA, NIT, etc)
+
+tournament
+Responses
+Code	Description	Links
+200	
+Ok
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "gameId": 0,
+    "season": 0,
+    "seasonLabel": "string",
+    "seasonType": "postseason",
+    "tournament": "string",
+    "startDate": "2025-03-17T00:03:21.443Z",
+    "startTimeTbd": true,
+    "teamId": 0,
+    "team": "string",
+    "conference": "string",
+    "teamSeed": 0,
+    "opponentId": 0,
+    "opponent": "string",
+    "opponentConference": "string",
+    "opponentSeed": 0,
+    "neutralSite": true,
+    "isHome": true,
+    "conferenceGame": true,
+    "gameType": "string",
+    "notes": "string",
+    "gameMinutes": 0,
+    "pace": 0,
+    "teamStats": {
+      "fieldGoals": {
+        "pct": 0,
+        "attempted": 0,
+        "made": 0
+      },
+      "twoPointFieldGoals": {
+        "pct": 0,
+        "attempted": 0,
+        "made": 0
+      },
+      "threePointFieldGoals": {
+        "pct": 0,
+        "attempted": 0,
+        "made": 0
+      },
+      "freeThrows": {
+        "pct": 0,
+        "attempted": 0,
+        "made": 0
+      },
+      "rebounds": {
+        "total": 0,
+        "defensive": 0,
+        "offensive": 0
+      },
+      "turnovers": {
+        "teamTotal": 0,
+        "total": 0
+      },
+      "fouls": {
+        "flagrant": 0,
+        "technical": 0,
+        "total": 0
+      },
+      "points": {
+        "fastBreak": 0,
+        "offTurnovers": 0,
+        "inPaint": 0,
+        "byPeriod": [
+          0
+        ],
+        "largestLead": 0,
+        "total": 0
+      },
+      "fourFactors": {
+        "freeThrowRate": 0,
+        "offensiveReboundPct": 0,
+        "turnoverRatio": 0,
+        "effectiveFieldGoalPct": 0
+      },
+      "assists": 0,
+      "blocks": 0,
+      "steals": 0,
+      "possessions": 0,
+      "rating": 0,
+      "trueShooting": 0,
+      "gameScore": 0
+    },
+    "opponentStats": {
+      "fieldGoals": {
+        "pct": 0,
+        "attempted": 0,
+        "made": 0
+      },
+      "twoPointFieldGoals": {
+        "pct": 0,
+        "attempted": 0,
+        "made": 0
+      },
+      "threePointFieldGoals": {
+        "pct": 0,
+        "attempted": 0,
+        "made": 0
+      },
+      "freeThrows": {
+        "pct": 0,
+        "attempted": 0,
+        "made": 0
+      },
+      "rebounds": {
+        "total": 0,
+        "defensive": 0,
+        "offensive": 0
+      },
+      "turnovers": {
+        "teamTotal": 0,
+        "total": 0
+      },
+      "fouls": {
+        "flagrant": 0,
+        "technical": 0,
+        "total": 0
+      },
+      "points": {
+        "fastBreak": 0,
+        "offTurnovers": 0,
+        "inPaint": 0,
+        "byPeriod": [
+          0
+        ],
+        "largestLead": 0,
+        "total": 0
+      },
+      "fourFactors": {
+        "freeThrowRate": 0,
+        "offensiveReboundPct": 0,
+        "turnoverRatio": 0,
+        "effectiveFieldGoalPct": 0
+      },
+      "assists": 0,
+      "blocks": 0,
+      "steals": 0,
+      "possessions": 0,
+      "rating": 0,
+      "trueShooting": 0,
+      "gameScore": 0
+    }
+  }
+]
+No links
+
+GET
+/games/players
+
+
+Returns player box score statistics and metrics on the first 1000 games that match the provided filters, ordered by start date.
+
+Parameters
+Try it out
+Name	Description
+startDateRange
+string($date-time)
+(query)
+Optional start timestamp in ISO 8601 format
+
+startDateRange
+endDateRange
+string($date-time)
+(query)
+Optional end timestamp in ISO 8601 format
+
+endDateRange
+team
+string
+(query)
+Optional team name filter
+
+team
+conference
+string
+(query)
+Optional conference abbreviation filter
+
+conference
+season
+number($double)
+(query)
+Optional season filter
+
+season
+seasonType
+string
+(query)
+Optional season type filter
+
+Available values : postseason, preseason, regular
+
+
+--
+tournament
+string
+(query)
+Optional tournament filter (e.g. NCAA, NIT, etc)
+
+tournament
+Responses
+Code	Description	Links
+200	
+Ok
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "gameId": 0,
+    "season": 0,
+    "seasonLabel": "string",
+    "seasonType": "postseason",
+    "tournament": "string",
+    "startDate": "2025-03-17T00:03:21.447Z",
+    "startTimeTbd": true,
+    "teamId": 0,
+    "team": "string",
+    "conference": "string",
+    "teamSeed": 0,
+    "opponentId": 0,
+    "opponent": "string",
+    "opponentConference": "string",
+    "opponentSeed": 0,
+    "neutralSite": true,
+    "isHome": true,
+    "conferenceGame": true,
+    "gameType": "string",
+    "notes": "string",
+    "gameMinutes": 0,
+    "gamePace": 0,
+    "players": [
+      {
+        "rebounds": {
+          "total": 0,
+          "defensive": 0,
+          "offensive": 0
+        },
+        "freeThrows": {
+          "pct": 0,
+          "attempted": 0,
+          "made": 0
+        },
+        "threePointFieldGoals": {
+          "pct": 0,
+          "attempted": 0,
+          "made": 0
+        },
+        "twoPointFieldGoals": {
+          "pct": 0,
+          "attempted": 0,
+          "made": 0
+        },
+        "fieldGoals": {
+          "pct": 0,
+          "attempted": 0,
+          "made": 0
+        },
+        "offensiveReboundPct": 0,
+        "freeThrowRate": 0,
+        "assistsTurnoverRatio": 0,
+        "gameScore": 0,
+        "trueShootingPct": 0,
+        "effectiveFieldGoalPct": 0,
+        "netRating": 0,
+        "defensiveRating": 0,
+        "offensiveRating": 0,
+        "usage": 0,
+        "blocks": 0,
+        "steals": 0,
+        "assists": 0,
+        "fouls": 0,
+        "turnovers": 0,
+        "points": 0,
+        "minutes": 0,
+        "ejected": true,
+        "starter": true,
+        "position": "string",
+        "name": "string",
+        "athleteSourceId": "string",
+        "athleteId": 0
+      }
+    ]
+  }
+]
+No links
+plays
+Play by play data
+
+
+
+GET
+/substitutions/game/{gameId}
+
+
+Returns all player substitutions for a given game
+
+Parameters
+Try it out
+Name	Description
+gameId *
+integer($int32)
+(path)
+Game id filter
+
+gameId
+Responses
+Code	Description	Links
+200	
+Ok
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "gameId": 0,
+    "startDate": "2025-03-17T00:03:21.450Z",
+    "teamId": 0,
+    "team": "string",
+    "conference": "string",
+    "athleteId": 0,
+    "athlete": "string",
+    "position": "string",
+    "opponentId": 0,
+    "opponent": "string",
+    "opponentConference": "string",
+    "subIn": {
+      "opponentPoints": 0,
+      "teamPoints": 0,
+      "secondsRemaining": 0,
+      "period": 0
+    },
+    "subOut": {
+      "opponentPoints": 0,
+      "teamPoints": 0,
+      "secondsRemaining": 0,
+      "period": 0
+    }
+  }
+]
+No links
+
+GET
+/substitutions/player/{playerId}
+
+
+Retrieve all player substitutions for a given player and season
+
+Parameters
+Try it out
+Name	Description
+playerId *
+integer($int32)
+(path)
+Required player id filter
+
+playerId
+season *
+integer($int32)
+(query)
+Required season filter
+
+season
+Responses
+Code	Description	Links
+200	
+Ok
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "gameId": 0,
+    "startDate": "2025-03-17T00:03:21.451Z",
+    "teamId": 0,
+    "team": "string",
+    "conference": "string",
+    "athleteId": 0,
+    "athlete": "string",
+    "position": "string",
+    "opponentId": 0,
+    "opponent": "string",
+    "opponentConference": "string",
+    "subIn": {
+      "opponentPoints": 0,
+      "teamPoints": 0,
+      "secondsRemaining": 0,
+      "period": 0
+    },
+    "subOut": {
+      "opponentPoints": 0,
+      "teamPoints": 0,
+      "secondsRemaining": 0,
+      "period": 0
+    }
+  }
+]
+No links
+
+GET
+/substitutions/team
+
+
+Retrieve all player substitutions for a given team and season
+
+Parameters
+Try it out
+Name	Description
+season *
+integer($int32)
+(query)
+Required season filter
+
+season
+team *
+string
+(query)
+Required team filter
+
+team
+Responses
+Code	Description	Links
+200	
+Ok
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "gameId": 0,
+    "startDate": "2025-03-17T00:03:21.452Z",
+    "teamId": 0,
+    "team": "string",
+    "conference": "string",
+    "athleteId": 0,
+    "athlete": "string",
+    "position": "string",
+    "opponentId": 0,
+    "opponent": "string",
+    "opponentConference": "string",
+    "subIn": {
+      "opponentPoints": 0,
+      "teamPoints": 0,
+      "secondsRemaining": 0,
+      "period": 0
+    },
+    "subOut": {
+      "opponentPoints": 0,
+      "teamPoints": 0,
+      "secondsRemaining": 0,
+      "period": 0
+    }
+  }
+]
+No links
+
+GET
+/plays/game/{gameId}
+
+
+Returns all plays for a given game
+
+Parameters
+Try it out
+Name	Description
+gameId *
+integer($int32)
+(path)
+Game id filter
+
+gameId
+shootingPlaysOnly
+boolean
+(query)
+Optional filter to only return shooting plays
+
+
+--
+Responses
+Code	Description	Links
+200	
+Ok
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "id": 0,
+    "sourceId": "string",
+    "gameId": 0,
+    "gameSourceId": "string",
+    "gameStartDate": "2025-03-17T00:03:21.454Z",
+    "season": 0,
+    "seasonType": "postseason",
+    "gameType": "string",
+    "tournament": "string",
+    "playType": "string",
+    "isHomeTeam": true,
+    "teamId": 0,
+    "team": "string",
+    "conference": "string",
+    "teamSeed": 0,
+    "opponentId": 0,
+    "opponent": "string",
+    "opponentConference": "string",
+    "opponentSeed": 0,
+    "period": 0,
+    "clock": "string",
+    "secondsRemaining": 0,
+    "homeScore": 0,
+    "awayScore": 0,
+    "homeWinProbability": 0,
+    "scoringPlay": true,
+    "shootingPlay": true,
+    "scoreValue": 0,
+    "wallclock": "2025-03-17T00:03:21.454Z",
+    "playText": "string",
+    "participants": [
+      {
+        "name": "string",
+        "id": 0
+      }
+    ],
+    "onFloor": [
+      {
+        "team": "string",
+        "name": "string",
+        "id": 0
+      }
+    ],
+    "shotInfo": {
+      "shooter": {
+        "name": "string",
+        "id": 0
+      },
+      "made": true,
+      "range": "rim",
+      "assisted": true,
+      "assistedBy": {
+        "name": "string",
+        "id": 0
+      },
+      "location": {
+        "y": 0,
+        "x": 0
+      }
+    }
+  }
+]
+No links
+
+GET
+/plays/player/{playerId}
+
+
+Retrieve all plays for a given player and season
+
+Parameters
+Try it out
+Name	Description
+playerId *
+integer($int32)
+(path)
+Required player id filter
+
+playerId
+season *
+integer($int32)
+(query)
+Required season filter
+
+season
+shootingPlaysOnly
+boolean
+(query)
+Optional filter to only return shooting plays
+
+
+--
+Responses
+Code	Description	Links
+200	
+Ok
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "id": 0,
+    "sourceId": "string",
+    "gameId": 0,
+    "gameSourceId": "string",
+    "gameStartDate": "2025-03-17T00:03:21.456Z",
+    "season": 0,
+    "seasonType": "postseason",
+    "gameType": "string",
+    "tournament": "string",
+    "playType": "string",
+    "isHomeTeam": true,
+    "teamId": 0,
+    "team": "string",
+    "conference": "string",
+    "teamSeed": 0,
+    "opponentId": 0,
+    "opponent": "string",
+    "opponentConference": "string",
+    "opponentSeed": 0,
+    "period": 0,
+    "clock": "string",
+    "secondsRemaining": 0,
+    "homeScore": 0,
+    "awayScore": 0,
+    "homeWinProbability": 0,
+    "scoringPlay": true,
+    "shootingPlay": true,
+    "scoreValue": 0,
+    "wallclock": "2025-03-17T00:03:21.456Z",
+    "playText": "string",
+    "participants": [
+      {
+        "name": "string",
+        "id": 0
+      }
+    ],
+    "onFloor": [
+      {
+        "team": "string",
+        "name": "string",
+        "id": 0
+      }
+    ],
+    "shotInfo": {
+      "shooter": {
+        "name": "string",
+        "id": 0
+      },
+      "made": true,
+      "range": "rim",
+      "assisted": true,
+      "assistedBy": {
+        "name": "string",
+        "id": 0
+      },
+      "location": {
+        "y": 0,
+        "x": 0
+      }
+    }
+  }
+]
+No links
+
+GET
+/plays/team
+
+
+Retrieve all plays for a given team and season
+
+Parameters
+Try it out
+Name	Description
+season *
+integer($int32)
+(query)
+Required season filter
+
+season
+team *
+string
+(query)
+Required team filter
+
+team
+shootingPlaysOnly
+boolean
+(query)
+Optional filter to only return shooting plays
+
+
+--
+Responses
+Code	Description	Links
+200	
+Ok
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "id": 0,
+    "sourceId": "string",
+    "gameId": 0,
+    "gameSourceId": "string",
+    "gameStartDate": "2025-03-17T00:03:21.458Z",
+    "season": 0,
+    "seasonType": "postseason",
+    "gameType": "string",
+    "tournament": "string",
+    "playType": "string",
+    "isHomeTeam": true,
+    "teamId": 0,
+    "team": "string",
+    "conference": "string",
+    "teamSeed": 0,
+    "opponentId": 0,
+    "opponent": "string",
+    "opponentConference": "string",
+    "opponentSeed": 0,
+    "period": 0,
+    "clock": "string",
+    "secondsRemaining": 0,
+    "homeScore": 0,
+    "awayScore": 0,
+    "homeWinProbability": 0,
+    "scoringPlay": true,
+    "shootingPlay": true,
+    "scoreValue": 0,
+    "wallclock": "2025-03-17T00:03:21.458Z",
+    "playText": "string",
+    "participants": [
+      {
+        "name": "string",
+        "id": 0
+      }
+    ],
+    "onFloor": [
+      {
+        "team": "string",
+        "name": "string",
+        "id": 0
+      }
+    ],
+    "shotInfo": {
+      "shooter": {
+        "name": "string",
+        "id": 0
+      },
+      "made": true,
+      "range": "rim",
+      "assisted": true,
+      "assistedBy": {
+        "name": "string",
+        "id": 0
+      },
+      "location": {
+        "y": 0,
+        "x": 0
+      }
+    }
+  }
+]
+No links
+
+GET
+/plays/date
+
+
+Retrieve all plays for a given UTC date
+
+Parameters
+Try it out
+Name	Description
+date *
+string($date-time)
+(query)
+Required date filter in ISO 8601 format (YYYY-MM-DD)
+
+date
+shootingPlaysOnly
+boolean
+(query)
+Optional filter to only return shooting plays
+
+
+--
+Responses
+Code	Description	Links
+200	
+Ok
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "id": 0,
+    "sourceId": "string",
+    "gameId": 0,
+    "gameSourceId": "string",
+    "gameStartDate": "2025-03-17T00:03:21.459Z",
+    "season": 0,
+    "seasonType": "postseason",
+    "gameType": "string",
+    "tournament": "string",
+    "playType": "string",
+    "isHomeTeam": true,
+    "teamId": 0,
+    "team": "string",
+    "conference": "string",
+    "teamSeed": 0,
+    "opponentId": 0,
+    "opponent": "string",
+    "opponentConference": "string",
+    "opponentSeed": 0,
+    "period": 0,
+    "clock": "string",
+    "secondsRemaining": 0,
+    "homeScore": 0,
+    "awayScore": 0,
+    "homeWinProbability": 0,
+    "scoringPlay": true,
+    "shootingPlay": true,
+    "scoreValue": 0,
+    "wallclock": "2025-03-17T00:03:21.459Z",
+    "playText": "string",
+    "participants": [
+      {
+        "name": "string",
+        "id": 0
+      }
+    ],
+    "onFloor": [
+      {
+        "team": "string",
+        "name": "string",
+        "id": 0
+      }
+    ],
+    "shotInfo": {
+      "shooter": {
+        "name": "string",
+        "id": 0
+      },
+      "made": true,
+      "range": "rim",
+      "assisted": true,
+      "assistedBy": {
+        "name": "string",
+        "id": 0
+      },
+      "location": {
+        "y": 0,
+        "x": 0
+      }
+    }
+  }
+]
+No links
+
+GET
+/plays/tournament
+
+
+Retrieve all plays for a given tournament and season
+
+Parameters
+Try it out
+Name	Description
+tournament *
+string
+(query)
+Required tournament filter (e.g. NCAA, NIT, etc)
+
+tournament
+season *
+number($double)
+(query)
+Required season filter
+
+season
+shootingPlaysOnly
+boolean
+(query)
+Optional filter to only return shooting plays
+
+
+--
+Responses
+Code	Description	Links
+200	
+Ok
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "id": 0,
+    "sourceId": "string",
+    "gameId": 0,
+    "gameSourceId": "string",
+    "gameStartDate": "2025-03-17T00:03:21.462Z",
+    "season": 0,
+    "seasonType": "postseason",
+    "gameType": "string",
+    "tournament": "string",
+    "playType": "string",
+    "isHomeTeam": true,
+    "teamId": 0,
+    "team": "string",
+    "conference": "string",
+    "teamSeed": 0,
+    "opponentId": 0,
+    "opponent": "string",
+    "opponentConference": "string",
+    "opponentSeed": 0,
+    "period": 0,
+    "clock": "string",
+    "secondsRemaining": 0,
+    "homeScore": 0,
+    "awayScore": 0,
+    "homeWinProbability": 0,
+    "scoringPlay": true,
+    "shootingPlay": true,
+    "scoreValue": 0,
+    "wallclock": "2025-03-17T00:03:21.462Z",
+    "playText": "string",
+    "participants": [
+      {
+        "name": "string",
+        "id": 0
+      }
+    ],
+    "onFloor": [
+      {
+        "team": "string",
+        "name": "string",
+        "id": 0
+      }
+    ],
+    "shotInfo": {
+      "shooter": {
+        "name": "string",
+        "id": 0
+      },
+      "made": true,
+      "range": "rim",
+      "assisted": true,
+      "assistedBy": {
+        "name": "string",
+        "id": 0
+      },
+      "location": {
+        "y": 0,
+        "x": 0
+      }
+    }
+  }
+]
+No links
+
+GET
+/plays/types
+
+
+Retrieve list of play types
+
+Parameters
+Try it out
+No parameters
+
+Responses
+Code	Description	Links
+200	
+Ok
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "id": 0,
+    "name": "string"
+  }
+]
+No links
+teams
+Team information
+
+
+
+GET
+/teams
+
+
+Retrieves historical team information
+
+Parameters
+Try it out
+Name	Description
+conference
+string
+(query)
+Optional conference filter
+
+conference
+season
+integer($int32)
+(query)
+Optional season filter
+
+season
+Responses
+Code	Description	Links
+200	
+Ok
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "id": 0,
+    "sourceId": "string",
+    "school": "string",
+    "mascot": "string",
+    "abbreviation": "string",
+    "displayName": "string",
+    "shortDisplayName": "string",
+    "primaryColor": "string",
+    "secondaryColor": "string",
+    "currentVenueId": 0,
+    "currentVenue": "string",
+    "currentCity": "string",
+    "currentState": "string",
+    "conferenceId": 0,
+    "conference": "string"
+  }
+]
+No links
+
+GET
+/teams/roster
+
+
+Retrieves team roster information
+
+Parameters
+Try it out
+Name	Description
+season *
+integer($int32)
+(query)
+Season filter
+
+season
+team
+string
+(query)
+Optional team filter
+
+team
+Responses
+Code	Description	Links
+200	
+Ok
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "teamId": 0,
+    "teamSourceId": "string",
+    "team": "string",
+    "conference": "string",
+    "season": 0,
+    "players": [
+      {
+        "id": 0,
+        "sourceId": "string",
+        "name": "string",
+        "firstName": "string",
+        "lastName": "string",
+        "jersey": "string",
+        "position": "string",
+        "height": 0,
+        "weight": 0,
+        "hometown": {
+          "countyFips": "string",
+          "longitude": 0,
+          "latitude": 0,
+          "country": "string",
+          "state": "string",
+          "city": "string"
+        },
+        "dateOfBirth": "2025-03-17",
+        "startSeason": 0,
+        "endSeason": 0
+      }
+    ]
+  }
+]
+No links
+conferences
+Conference information
+
+
+
+GET
+/conferences
+
+
+Retrieves list of available conferences
+
+Parameters
+Try it out
+No parameters
+
+Responses
+Code	Description	Links
+200	
+Ok
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "id": 0,
+    "sourceId": "string",
+    "name": "string",
+    "abbreviation": "string",
+    "shortName": "string"
+  }
+]
+No links
+
+GET
+/conferences/history
+
+
+Retrieves historical conference membership information
+
+Parameters
+Try it out
+Name	Description
+conference
+string
+(query)
+Optional conference abbreviation filter
+
+conference
+Responses
+Code	Description	Links
+200	
+Ok
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "id": 0,
+    "sourceId": "string",
+    "name": "string",
+    "abbreviation": "string",
+    "shortName": "string",
+    "teams": [
+      {
+        "endSeason": 0,
+        "startSeason": 0,
+        "mascot": "string",
+        "school": "string",
+        "sourceId": "string",
+        "id": 0
+      }
+    ]
+  }
+]
+No links
+venues
+Information about venues
+
+
+
+GET
+/venues
+
+
+Retrieves list of available venues
+
+Parameters
+Try it out
+No parameters
+
+Responses
+Code	Description	Links
+200	
+Ok
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "id": 0,
+    "sourceId": "string",
+    "name": "string",
+    "city": "string",
+    "state": "string",
+    "country": "string"
+  }
+]
+No links
+stats
+Statistical data
+
+
+
+GET
+/stats/team/season
+
+
+Returns team season statistics by year or team
+
+Parameters
+Try it out
+Name	Description
+season
+number($double)
+(query)
+Optional season filter, required if team is not provided
+
+season
+seasonType
+string
+(query)
+Optional season type filter
+
+Available values : postseason, preseason, regular
+
+
+--
+team
+string
+(query)
+Optional team name filter, required if season is not provided
+
+team
+conference
+string
+(query)
+Optional conference abbreviation filter
+
+conference
+startDateRange
+string($date-time)
+(query)
+startDateRange
+endDateRange
+string($date-time)
+(query)
+endDateRange
+Responses
+Code	Description	Links
+200	
+Ok
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "season": 0,
+    "seasonLabel": "string",
+    "teamId": 0,
+    "team": "string",
+    "conference": "string",
+    "games": 0,
+    "wins": 0,
+    "losses": 0,
+    "totalMinutes": 0,
+    "pace": 0,
+    "teamStats": {
+      "fieldGoals": {
+        "pct": 0,
+        "attempted": 0,
+        "made": 0
+      },
+      "twoPointFieldGoals": {
+        "pct": 0,
+        "attempted": 0,
+        "made": 0
+      },
+      "threePointFieldGoals": {
+        "pct": 0,
+        "attempted": 0,
+        "made": 0
+      },
+      "freeThrows": {
+        "pct": 0,
+        "attempted": 0,
+        "made": 0
+      },
+      "rebounds": {
+        "total": 0,
+        "defensive": 0,
+        "offensive": 0
+      },
+      "turnovers": {
+        "teamTotal": 0,
+        "total": 0
+      },
+      "fouls": {
+        "flagrant": 0,
+        "technical": 0,
+        "total": 0
+      },
+      "points": {
+        "fastBreak": 0,
+        "offTurnovers": 0,
+        "inPaint": 0,
+        "total": 0
+      },
+      "fourFactors": {
+        "freeThrowRate": 0,
+        "offensiveReboundPct": 0,
+        "turnoverRatio": 0,
+        "effectiveFieldGoalPct": 0
+      },
+      "assists": 0,
+      "blocks": 0,
+      "steals": 0,
+      "possessions": 0,
+      "rating": 0,
+      "trueShooting": 0
+    },
+    "opponentStats": {
+      "fieldGoals": {
+        "pct": 0,
+        "attempted": 0,
+        "made": 0
+      },
+      "twoPointFieldGoals": {
+        "pct": 0,
+        "attempted": 0,
+        "made": 0
+      },
+      "threePointFieldGoals": {
+        "pct": 0,
+        "attempted": 0,
+        "made": 0
+      },
+      "freeThrows": {
+        "pct": 0,
+        "attempted": 0,
+        "made": 0
+      },
+      "rebounds": {
+        "total": 0,
+        "defensive": 0,
+        "offensive": 0
+      },
+      "turnovers": {
+        "teamTotal": 0,
+        "total": 0
+      },
+      "fouls": {
+        "flagrant": 0,
+        "technical": 0,
+        "total": 0
+      },
+      "points": {
+        "fastBreak": 0,
+        "offTurnovers": 0,
+        "inPaint": 0,
+        "total": 0
+      },
+      "fourFactors": {
+        "freeThrowRate": 0,
+        "offensiveReboundPct": 0,
+        "turnoverRatio": 0,
+        "effectiveFieldGoalPct": 0
+      },
+      "assists": 0,
+      "blocks": 0,
+      "steals": 0,
+      "possessions": 0,
+      "rating": 0,
+      "trueShooting": 0
+    }
+  }
+]
+No links
+
+GET
+/stats/team/shooting/season
+
+
+Retrieves team season shooting statistics
+
+Parameters
+Try it out
+Name	Description
+season *
+integer($int32)
+(query)
+Required season filter
+
+season
+seasonType
+string
+(query)
+Optional season type filter
+
+Available values : postseason, preseason, regular
+
+
+--
+team
+string
+(query)
+Team filter, required if conference is not provided
+
+team
+conference
+string
+(query)
+Conference abbreviation filter, required if team is not provided
+
+conference
+startDateRange
+string($date-time)
+(query)
+Optional start date range filter
+
+startDateRange
+endDateRange
+string($date-time)
+(query)
+Optional end date range filter
+
+endDateRange
+Responses
+Code	Description	Links
+200	
+Ok
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "season": 0,
+    "teamId": 0,
+    "team": "string",
+    "conference": "string",
+    "trackedShots": 0,
+    "assistedPct": 0,
+    "dunks": {
+      "made": 0,
+      "attempted": 0,
+      "pct": 0,
+      "assistedPct": 0,
+      "assisted": 0
+    },
+    "layups": {
+      "made": 0,
+      "attempted": 0,
+      "pct": 0,
+      "assistedPct": 0,
+      "assisted": 0
+    },
+    "tipIns": {
+      "made": 0,
+      "attempted": 0,
+      "pct": 0
+    },
+    "twoPointJumpers": {
+      "made": 0,
+      "attempted": 0,
+      "pct": 0,
+      "assistedPct": 0,
+      "assisted": 0
+    },
+    "threePointJumpers": {
+      "made": 0,
+      "attempted": 0,
+      "pct": 0,
+      "assistedPct": 0,
+      "assisted": 0
+    },
+    "attemptsBreakdown": {
+      "threePointJumpers": 0,
+      "twoPointJumpers": 0,
+      "tipIns": 0,
+      "layups": 0,
+      "dunks": 0
+    }
+  }
+]
+No links
+
+GET
+/stats/player/season
+
+
+Returns player statistics by season
+
+Parameters
+Try it out
+Name	Description
+season *
+number($double)
+(query)
+Required season filter
+
+season
+seasonType
+string
+(query)
+Optional season type filter
+
+Available values : postseason, preseason, regular
+
+
+--
+team
+string
+(query)
+Optional team name filter
+
+team
+conference
+string
+(query)
+Optional conference abbreviation filter
+
+conference
+startDateRange
+string($date-time)
+(query)
+startDateRange
+endDateRange
+string($date-time)
+(query)
+endDateRange
+Responses
+Code	Description	Links
+200	
+Ok
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "season": 0,
+    "seasonLabel": "string",
+    "teamId": 0,
+    "team": "string",
+    "conference": "string",
+    "athleteId": 0,
+    "athleteSourceId": "string",
+    "name": "string",
+    "position": "string",
+    "games": 0,
+    "starts": 0,
+    "minutes": 0,
+    "points": 0,
+    "turnovers": 0,
+    "fouls": 0,
+    "assists": 0,
+    "steals": 0,
+    "blocks": 0,
+    "usage": 0,
+    "offensiveRating": 0,
+    "defensiveRating": 0,
+    "netRating": 0,
+    "PORPAG": 0,
+    "effectiveFieldGoalPct": 0,
+    "trueShootingPct": 0,
+    "assistsTurnoverRatio": 0,
+    "freeThrowRate": 0,
+    "offensiveReboundPct": 0,
+    "fieldGoals": {
+      "pct": 0,
+      "attempted": 0,
+      "made": 0
+    },
+    "twoPointFieldGoals": {
+      "pct": 0,
+      "attempted": 0,
+      "made": 0
+    },
+    "threePointFieldGoals": {
+      "pct": 0,
+      "attempted": 0,
+      "made": 0
+    },
+    "freeThrows": {
+      "pct": 0,
+      "attempted": 0,
+      "made": 0
+    },
+    "rebounds": {
+      "total": 0,
+      "defensive": 0,
+      "offensive": 0
+    },
+    "winShares": {
+      "totalPer40": 0,
+      "total": 0,
+      "defensive": 0,
+      "offensive": 0
+    }
+  }
+]
+No links
+
+GET
+/stats/player/shooting/season
+
+
+Retrieves player season shooting statistics
+
+Parameters
+Try it out
+Name	Description
+season *
+integer($int32)
+(query)
+Required season filter
+
+season
+seasonType
+string
+(query)
+Optional season type filter
+
+Available values : postseason, preseason, regular
+
+
+--
+team
+string
+(query)
+Team filter, required if conference is not provided
+
+team
+conference
+string
+(query)
+Conference abbreviation filter, required if team is not provided
+
+conference
+startDateRange
+string($date-time)
+(query)
+Optional start date range filter
+
+startDateRange
+endDateRange
+string($date-time)
+(query)
+Optional end date range filter
+
+endDateRange
+Responses
+Code	Description	Links
+200	
+Ok
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "season": 0,
+    "teamId": 0,
+    "team": "string",
+    "conference": "string",
+    "trackedShots": 0,
+    "assistedPct": 0,
+    "dunks": {
+      "made": 0,
+      "attempted": 0,
+      "pct": 0,
+      "assistedPct": 0,
+      "assisted": 0
+    },
+    "layups": {
+      "made": 0,
+      "attempted": 0,
+      "pct": 0,
+      "assistedPct": 0,
+      "assisted": 0
+    },
+    "tipIns": {
+      "made": 0,
+      "attempted": 0,
+      "pct": 0
+    },
+    "twoPointJumpers": {
+      "made": 0,
+      "attempted": 0,
+      "pct": 0,
+      "assistedPct": 0,
+      "assisted": 0
+    },
+    "threePointJumpers": {
+      "made": 0,
+      "attempted": 0,
+      "pct": 0,
+      "assistedPct": 0,
+      "assisted": 0
+    },
+    "attemptsBreakdown": {
+      "threePointJumpers": 0,
+      "twoPointJumpers": 0,
+      "tipIns": 0,
+      "layups": 0,
+      "dunks": 0
+    },
+    "athleteId": 0,
+    "athleteName": "string"
+  }
+]
+No links
+rankings
+Historical polls and rankings
+
+
+
+GET
+/rankings
+
+
+Retrieves historical poll data
+
+Parameters
+Try it out
+Name	Description
+season
+integer($int32)
+(query)
+Optional season filter
+
+season
+seasonType
+string
+(query)
+Optional season type filter
+
+Available values : postseason, preseason, regular
+
+
+--
+week
+integer($int32)
+(query)
+Optional week filter
+
+week
+pollType
+string
+(query)
+Optional poll type filter ("ap" or "coaches")
+
+Available values : ap, coaches
+
+
+--
+team
+string
+(query)
+Optional team filter
+
+team
+conference
+string
+(query)
+Optional conference filter
+
+conference
+Responses
+Code	Description	Links
+200	
+Ok
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "season": 0,
+    "seasonType": "postseason",
+    "week": 0,
+    "pollDate": "2025-03-17T00:03:21.477Z",
+    "pollType": "string",
+    "teamId": 0,
+    "team": "string",
+    "conference": "string",
+    "ranking": 0,
+    "points": 0,
+    "firstPlaceVotes": 0
+  }
+]
+No links
+ratings
+Historical ratings systems
+
+
+
+GET
+/ratings/srs
+
+
+Retrieves SRS ratings for the provided season, team, or conference.
+
+Parameters
+Try it out
+Name	Description
+season
+integer($int32)
+(query)
+Optional season filter
+
+season
+team
+string
+(query)
+Optional team filter
+
+team
+conference
+string
+(query)
+Optional conference abbreviation filter
+
+conference
+Responses
+Code	Description	Links
+200	
+Ok
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "season": 0,
+    "teamId": 0,
+    "team": "string",
+    "conference": "string",
+    "rating": 0
+  }
+]
+No links
+
+GET
+/ratings/adjusted
+
+
+Retrieves adjusted efficiency ratings for the provided season, team, or conference.
+
+Parameters
+Try it out
+Name	Description
+season
+integer($int32)
+(query)
+Optional season filter
+
+season
+team
+string
+(query)
+Optional team filter
+
+team
+conference
+string
+(query)
+Optional conference abbreviation filter
+
+conference
+Responses
+Code	Description	Links
+200	
+Ok
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "season": 0,
+    "teamId": 0,
+    "team": "string",
+    "conference": "string",
+    "offensiveRating": 0,
+    "defensiveRating": 0,
+    "netRating": 0,
+    "rankings": {
+      "net": 0,
+      "defense": 0,
+      "offense": 0
+    }
+  }
+]
+No links
+lines
+Historical spreads and betting data
+
+
+
+GET
+/lines
+
+
+Returns betting lines for the first 3000 games that match the provided filters, ordered by start date.
+
+Parameters
+Try it out
+Name	Description
+season
+integer($int32)
+(query)
+Optional season filter
+
+season
+team
+string
+(query)
+Optional team name filter
+
+team
+conference
+string
+(query)
+Optional conference abbreviation filter
+
+conference
+startDateRange
+string($date-time)
+(query)
+Optional start timestamp in ISO 8601 format
+
+startDateRange
+endDateRange
+string($date-time)
+(query)
+Optional end timestamp in ISO 8601 format
+
+endDateRange
+Responses
+Code	Description	Links
+200	
+Ok
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "gameId": 0,
+    "season": 0,
+    "seasonType": "postseason",
+    "startDate": "2025-03-17T00:03:21.480Z",
+    "homeTeamId": 0,
+    "homeTeam": "string",
+    "homeConference": "string",
+    "homeScore": 0,
+    "awayTeamId": 0,
+    "awayTeam": "string",
+    "awayConference": "string",
+    "awayScore": 0,
+    "lines": [
+      {
+        "provider": "string",
+        "spread": 0,
+        "overUnder": 0,
+        "homeMoneyline": 0,
+        "awayMoneyline": 0,
+        "spreadOpen": 0,
+        "overUnderOpen": 0
+      }
+    ]
+  }
+]
+No links
+
+GET
+/lines/providers
+
+
+Parameters
+Try it out
+No parameters
+
+Responses
+Code	Description	Links
+200	
+Ok
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "id": 0,
+    "name": "string"
+  }
+]
+No links
+lineups
+Statistics and data around specific lineups
+
+
+
+GET
+/lineups/team
+
+
+Queries lineup statistics for a given team and season
+
+Parameters
+Try it out
+Name	Description
+season *
+integer($int32)
+(query)
+Required season filter
+
+season
+team *
+string
+(query)
+Required team filter
+
+team
+startDateRange
+string($date-time)
+(query)
+Optional start date range filter
+
+startDateRange
+endDateRange
+string($date-time)
+(query)
+Optional end date range filter
+
+endDateRange
+Responses
+Code	Description	Links
+200	
+Ok
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "teamId": 0,
+    "team": "string",
+    "conference": "string",
+    "idHash": "string",
+    "athletes": [
+      {
+        "name": "string",
+        "id": 0
+      }
+    ],
+    "totalSeconds": 0,
+    "pace": 0,
+    "offenseRating": 0,
+    "defenseRating": 0,
+    "netRating": 0,
+    "teamStats": {
+      "possessions": 0,
+      "points": 0,
+      "blocks": 0,
+      "assists": 0,
+      "steals": 0,
+      "turnovers": 0,
+      "defensiveRebounds": 0,
+      "offensiveRebounds": 0,
+      "trueShooting": 0,
+      "fieldGoals": {
+        "made": 0,
+        "attempted": 0,
+        "pct": 0
+      },
+      "twoPointers": "string",
+      "threePointers": {
+        "made": 0,
+        "attempted": 0,
+        "pct": 0
+      },
+      "freeThrows": {
+        "made": 0,
+        "attempted": 0,
+        "pct": 0
+      },
+      "fourFactors": {
+        "freeThrowRate": 0,
+        "offensiveReboundPct": 0,
+        "turnoverRatio": 0,
+        "effectiveFieldGoalPct": 0
+      }
+    },
+    "opponentStats": {
+      "possessions": 0,
+      "points": 0,
+      "blocks": 0,
+      "assists": 0,
+      "steals": 0,
+      "turnovers": 0,
+      "defensiveRebounds": 0,
+      "offensiveRebounds": 0,
+      "trueShooting": 0,
+      "fieldGoals": {
+        "made": 0,
+        "attempted": 0,
+        "pct": 0
+      },
+      "twoPointers": "string",
+      "threePointers": {
+        "made": 0,
+        "attempted": 0,
+        "pct": 0
+      },
+      "freeThrows": {
+        "made": 0,
+        "attempted": 0,
+        "pct": 0
+      },
+      "fourFactors": {
+        "freeThrowRate": 0,
+        "offensiveReboundPct": 0,
+        "turnoverRatio": 0,
+        "effectiveFieldGoalPct": 0
+      }
+    }
+  }
+]
+No links
+
+GET
+/lineups/game/{gameId}
+
+
+Queries lineup statistics for a specific game
+
+Parameters
+Try it out
+Name	Description
+gameId *
+integer($int32)
+(path)
+Required game id filter
+
+gameId
+Responses
+Code	Description	Links
+200	
+Ok
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "teamId": 0,
+    "team": "string",
+    "conference": "string",
+    "idHash": "string",
+    "athletes": [
+      {
+        "name": "string",
+        "id": 0
+      }
+    ],
+    "totalSeconds": 0,
+    "pace": 0,
+    "offenseRating": 0,
+    "defenseRating": 0,
+    "netRating": 0,
+    "teamStats": {
+      "possessions": 0,
+      "points": 0,
+      "blocks": 0,
+      "assists": 0,
+      "steals": 0,
+      "turnovers": 0,
+      "defensiveRebounds": 0,
+      "offensiveRebounds": 0,
+      "trueShooting": 0,
+      "fieldGoals": {
+        "made": 0,
+        "attempted": 0,
+        "pct": 0
+      },
+      "twoPointers": "string",
+      "threePointers": {
+        "made": 0,
+        "attempted": 0,
+        "pct": 0
+      },
+      "freeThrows": {
+        "made": 0,
+        "attempted": 0,
+        "pct": 0
+      },
+      "fourFactors": {
+        "freeThrowRate": 0,
+        "offensiveReboundPct": 0,
+        "turnoverRatio": 0,
+        "effectiveFieldGoalPct": 0
+      }
+    },
+    "opponentStats": {
+      "possessions": 0,
+      "points": 0,
+      "blocks": 0,
+      "assists": 0,
+      "steals": 0,
+      "turnovers": 0,
+      "defensiveRebounds": 0,
+      "offensiveRebounds": 0,
+      "trueShooting": 0,
+      "fieldGoals": {
+        "made": 0,
+        "attempted": 0,
+        "pct": 0
+      },
+      "twoPointers": "string",
+      "threePointers": {
+        "made": 0,
+        "attempted": 0,
+        "pct": 0
+      },
+      "freeThrows": {
+        "made": 0,
+        "attempted": 0,
+        "pct": 0
+      },
+      "fourFactors": {
+        "freeThrowRate": 0,
+        "offensiveReboundPct": 0,
+        "turnoverRatio": 0,
+        "effectiveFieldGoalPct": 0
+      }
+    }
+  }
+]
+No links
+draft
+Historical NBA draft data
+
+
+
+GET
+/draft/teams
+
+
+Retrieves list of NBA teams
+
+Parameters
+Try it out
+No parameters
+
+Responses
+Code	Description	Links
+200	
+Ok
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "id": 0,
+    "sourceId": 0,
+    "location": "string",
+    "name": "string",
+    "displayName": "string",
+    "abbreviation": "string"
+  }
+]
+No links
+
+GET
+/draft/positions
+
+
+Retrieves list of position names for NBA draft prospects
+
+Parameters
+Try it out
+No parameters
+
+Responses
+Code	Description	Links
+200	
+Ok
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "name": "string",
+    "abbreviation": "string"
+  }
+]
+No links
+
+GET
+/draft/picks
+
+
+recruiting
+Historical recruiting data
+
+
+
+GET
+/recruiting/players
+
+
+Retrieves historical composite player recruiting ranking and ratings
+
+Parameters
+Try it out
+Name	Description
+year
+integer($int32)
+(query)
+Optional year filter
+
+year
+team
+string
+(query)
+Optional college team filter
+
+team
+conference
+string
+(query)
+Optional college conference filter
+
+conference
+position
+string
+(query)
+Optional position filter
+
+position
+Responses
+Code	Description	Links
+200	
+Ok
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "id": 0,
+    "sourceId": "string",
+    "position": "string",
+    "schoolId": 0,
+    "school": "string",
+    "hometown": {
+      "countyFips": "string",
+      "longitude": 0,
+      "latitude": 0,
+      "country": "string",
+      "state": "string",
+      "city": "string"
+    },
+    "committedTo": {
+      "conference": "string",
+      "name": "string",
+      "id": 0
+    },
+    "athleteId": 0,
+    "year": 0,
+    "name": "string",
+    "heightInches": 0,
+    "weightPounds": 0,
+    "stars": 0,
+    "rating": 0,
+    "ranking": 0
+  }
+]
+No links
+
+Schemas
+VenueInfo{
+id*	[...]
+sourceId*	[...]
+name*	[...]
+city*	[...]
+state*	[...]
+country*	[...]
+}
+TeamInfo{
+id*	[...]
+sourceId*	[...]
+school*	[...]
+mascot*	[...]
+abbreviation*	[...]
+displayName*	[...]
+shortDisplayName*	[...]
+primaryColor*	[...]
+secondaryColor*	[...]
+currentVenueId*	[...]
+currentVenue*	[...]
+currentCity*	[...]
+currentState*	[...]
+conferenceId*	[...]
+conference*	[...]
+}
+TeamRosterPlayer{
+id*	[...]
+sourceId*	[...]
+name*	[...]
+firstName*	[...]
+lastName*	[...]
+jersey*	[...]
+position*	[...]
+height*	[...]
+weight*	[...]
+hometown*	{...}
+dateOfBirth*	[...]
+startSeason*	[...]
+endSeason*	[...]
+}
+TeamRoster{
+teamId*	[...]
+teamSourceId*	[...]
+team*	[...]
+conference*	[...]
+season*	[...]
+players*	[...]
+}
+PlayerSubsititution{
+gameId*	[...]
+startDate*	[...]
+teamId*	[...]
+team*	[...]
+conference*	[...]
+athleteId*	[...]
+athlete*	[...]
+position*	[...]
+opponentId*	[...]
+opponent*	[...]
+opponentConference*	[...]
+subIn*	{...}
+subOut*	{...}
+}
+TeamSeasonUnitStats{
+fieldGoals*	{...}
+twoPointFieldGoals*	{...}
+threePointFieldGoals*	{...}
+freeThrows*	{...}
+rebounds*	{...}
+turnovers*	{...}
+fouls*	{...}
+points*	{...}
+fourFactors*	{...}
+assists*	[...]
+blocks*	[...]
+steals*	[...]
+possessions*	[...]
+rating*	[...]
+trueShooting*	[...]
+}
+TeamSeasonStats{
+season*	[...]
+seasonLabel*	[...]
+teamId*	[...]
+team*	[...]
+conference*	[...]
+games*	[...]
+wins*	[...]
+losses*	[...]
+totalMinutes*	[...]
+pace*	[...]
+teamStats*	TeamSeasonUnitStats{...}
+opponentStats*	TeamSeasonUnitStats{...}
+}
+SeasonTypestring
+Enum:
+Array [ 3 ]
+ShotTypeBreakdown{
+made*	[...]
+attempted*	[...]
+pct*	[...]
+}
+SeasonShootingStats{
+season*	[...]
+teamId*	[...]
+team*	[...]
+conference*	[...]
+trackedShots*	[...]
+assistedPct*	[...]
+dunks*	{...}
+layups*	{...}
+tipIns*	ShotTypeBreakdown{...}
+twoPointJumpers*	{...}
+threePointJumpers*	{...}
+attemptsBreakdown*	{...}
+}
+PlayerSeasonStats{
+season*	[...]
+seasonLabel*	[...]
+teamId*	[...]
+team*	[...]
+conference*	[...]
+athleteId*	[...]
+athleteSourceId*	[...]
+name*	[...]
+position*	[...]
+games*	[...]
+starts*	[...]
+minutes*	[...]
+points*	[...]
+turnovers*	[...]
+fouls*	[...]
+assists*	[...]
+steals*	[...]
+blocks*	[...]
+usage*	[...]
+offensiveRating*	[...]
+defensiveRating*	[...]
+netRating*	[...]
+PORPAG*	[...]
+effectiveFieldGoalPct*	[...]
+trueShootingPct*	[...]
+assistsTurnoverRatio*	[...]
+freeThrowRate*	[...]
+offensiveReboundPct*	[...]
+fieldGoals*	{...}
+twoPointFieldGoals*	{...}
+threePointFieldGoals*	{...}
+freeThrows*	{...}
+rebounds*	{...}
+winShares*	{...}
+}
+PlayerSeasonShootingStats{
+season*	[...]
+teamId*	[...]
+team*	[...]
+conference*	[...]
+trackedShots*	[...]
+assistedPct*	[...]
+dunks*	{...}
+layups*	{...}
+tipIns*	ShotTypeBreakdown{...}
+twoPointJumpers*	{...}
+threePointJumpers*	{...}
+attemptsBreakdown*	{...}
+athleteId*	[...]
+athleteName*	[...]
+}
+Recruit{
+id*	[...]
+sourceId*	[...]
+position*	[...]
+schoolId*	[...]
+school*	[...]
+hometown*	{...}
+nullable: true
+committedTo*	{...}
+nullable: true
+athleteId*	[...]
+year*	[...]
+name*	[...]
+heightInches*	[...]
+weightPounds*	[...]
+stars*	[...]
+rating*	[...]
+ranking*	[...]
+}
+SrsInfo{
+season*	[...]
+teamId*	[...]
+team*	[...]
+conference*	[...]
+rating*	[...]
+}
+AdjustedEfficiencyInfo{
+season*	[...]
+teamId*	[...]
+team*	[...]
+conference*	[...]
+offensiveRating*	[...]
+defensiveRating*	[...]
+netRating*	[...]
+rankings*	{...}
+}
+PollTeamInfo{
+season*	[...]
+seasonType*	SeasonType[...]
+week*	[...]
+pollDate*	[...]
+pollType*	[...]
+teamId*	[...]
+team*	[...]
+conference*	[...]
+ranking*	[...]
+points*	[...]
+firstPlaceVotes*	[...]
+}
+ShotInfo{
+shooter*	{
+name*	[...]
+id*	[...]
+}
+made*	boolean
+range*	string
+Enum:
+[ rim, jumper, three_pointer, free_throw ]
+assisted*	boolean
+assistedBy*	{
+name*	[...]
+id*	[...]
+}
+location*	{
+y*	[...]
+x*	[...]
+}
+}
+PlayInfo{
+id*	[...]
+sourceId*	[...]
+gameId*	[...]
+gameSourceId*	[...]
+gameStartDate*	[...]
+season*	[...]
+seasonType*	SeasonType[...]
+gameType*	[...]
+tournament*	[...]
+playType*	[...]
+isHomeTeam*	[...]
+teamId*	[...]
+team*	[...]
+conference*	[...]
+teamSeed*	[...]
+opponentId*	[...]
+opponent*	[...]
+opponentConference*	[...]
+opponentSeed*	[...]
+period*	[...]
+clock*	[...]
+secondsRemaining*	[...]
+homeScore*	[...]
+awayScore*	[...]
+homeWinProbability*	[...]
+scoringPlay*	[...]
+shootingPlay*	[...]
+scoreValue*	[...]
+wallclock*	[...]
+playText*	[...]
+participants*	[...]
+onFloor*	[...]
+shotInfo*	{...}
+nullable: true
+}
+PlayTypeInfo{
+id*	[...]
+name*	[...]
+}
+ShootingStats{
+made*	[...]
+attempted*	[...]
+pct*	[...]
+}
+LineupUnitStats{
+possessions*	[...]
+points*	[...]
+blocks*	[...]
+assists*	[...]
+steals*	[...]
+turnovers*	[...]
+defensiveRebounds*	[...]
+offensiveRebounds*	[...]
+trueShooting*	[...]
+fieldGoals*	ShootingStats{...}
+twoPointers*	{...}
+threePointers*	ShootingStats{...}
+freeThrows*	ShootingStats{...}
+fourFactors*	{...}
+}
+LineupStats{
+teamId*	[...]
+team*	[...]
+conference*	[...]
+idHash*	[...]
+athletes*	[...]
+totalSeconds*	[...]
+pace*	[...]
+offenseRating*	[...]
+defenseRating*	[...]
+netRating*	[...]
+teamStats*	LineupUnitStats{...}
+opponentStats*	LineupUnitStats{...}
+}
+GameLineInfo{
+provider*	[...]
+spread*	[...]
+overUnder*	[...]
+homeMoneyline*	[...]
+awayMoneyline*	[...]
+spreadOpen*	[...]
+overUnderOpen*	[...]
+}
+GameLines{
+gameId*	[...]
+season*	[...]
+seasonType*	SeasonType[...]
+startDate*	[...]
+homeTeamId*	[...]
+homeTeam*	[...]
+homeConference*	[...]
+homeScore*	[...]
+awayTeamId*	[...]
+awayTeam*	[...]
+awayConference*	[...]
+awayScore*	[...]
+lines*	[...]
+}
+LineProviderInfo{
+id*	[...]
+name*	[...]
+}
+GameStatusstring
+Enum:
+Array [ 5 ]
+GameInfo{
+id*	[...]
+sourceId*	[...]
+seasonLabel*	[...]
+season*	[...]
+seasonType*	SeasonType[...]
+startDate*	[...]
+startTimeTbd*	[...]
+neutralSite*	[...]
+conferenceGame*	[...]
+gameType*	[...]
+tournament*	[...]
+gameNotes*	[...]
+status*	GameStatus[...]
+attendance*	[...]
+homeTeamId*	[...]
+homeTeam*	[...]
+homeConferenceId*	[...]
+homeConference*	[...]
+homeSeed*	[...]
+homePoints*	[...]
+homePeriodPoints*	[...]
+homeWinner*	[...]
+awayTeamId*	[...]
+awayTeam*	[...]
+awayConferenceId*	[...]
+awayConference*	[...]
+awaySeed*	[...]
+awayPoints*	[...]
+awayPeriodPoints*	[...]
+awayWinner*	[...]
+excitement*	[...]
+venueId*	[...]
+venue*	[...]
+city*	[...]
+state*	[...]
+}
+GameMediaInfo{
+gameId*	[...]
+season*	[...]
+seasonLabel*	[...]
+seasonType*	SeasonType[...]
+tournament*	[...]
+startDate*	[...]
+startTimeTbd*	[...]
+homeTeamId*	[...]
+homeTeam*	[...]
+homeConference*	[...]
+awayTeamId*	[...]
+awayTeam*	[...]
+awayConference*	[...]
+neutralSite*	[...]
+conferenceGame*	[...]
+gameType*	[...]
+notes*	[...]
+broadcasts*	[...]
+}
+GameBoxScoreTeamStats{
+fieldGoals*	{...}
+twoPointFieldGoals*	{...}
+threePointFieldGoals*	{...}
+freeThrows*	{...}
+rebounds*	{...}
+turnovers*	{...}
+fouls*	{...}
+points*	{...}
+fourFactors*	{...}
+assists*	[...]
+blocks*	[...]
+steals*	[...]
+possessions*	[...]
+rating*	[...]
+trueShooting*	[...]
+gameScore*	[...]
+}
+GameBoxScoreTeam{
+gameId*	[...]
+season*	[...]
+seasonLabel*	[...]
+seasonType*	SeasonType[...]
+tournament*	[...]
+startDate*	[...]
+startTimeTbd*	[...]
+teamId*	[...]
+team*	[...]
+conference*	[...]
+teamSeed*	[...]
+opponentId*	[...]
+opponent*	[...]
+opponentConference*	[...]
+opponentSeed*	[...]
+neutralSite*	[...]
+isHome*	[...]
+conferenceGame*	[...]
+gameType*	[...]
+notes*	[...]
+gameMinutes*	[...]
+pace*	[...]
+teamStats*	GameBoxScoreTeamStats{...}
+opponentStats*	GameBoxScoreTeamStats{...}
+}
+GameBoxScorePlayers{
+gameId*	[...]
+season*	[...]
+seasonLabel*	[...]
+seasonType*	SeasonType[...]
+tournament*	[...]
+startDate*	[...]
+startTimeTbd*	[...]
+teamId*	[...]
+team*	[...]
+conference*	[...]
+teamSeed*	[...]
+opponentId*	[...]
+opponent*	[...]
+opponentConference*	[...]
+opponentSeed*	[...]
+neutralSite*	[...]
+isHome*	[...]
+conferenceGame*	[...]
+gameType*	[...]
+notes*	[...]
+gameMinutes*	[...]
+gamePace*	[...]
+players*	[...]
+}
+DraftTeam{
+id*	[...]
+sourceId*	[...]
+location*	[...]
+name*	[...]
+displayName*	[...]
+abbreviation*	[...]
+}
+DraftPosition{
+name*	[...]
+abbreviation*	[...]
+}
+DraftPick{
+athleteId*	[...]
+sourceTeamId*	[...]
+sourceTeamLocation*	[...]
+sourceTeamName*	[...]
+sourceTeamLeagueAffiliation*	[...]
+sourceTeamCollegeId*	[...]
+draftTeamId*	[...]
+draftTeam*	[...]
+year*	[...]
+overall*	[...]
+round*	[...]
+pick*	[...]
+name*	[...]
+overallRank*	[...]
+positionRank*	[...]
+height*	[...]
+weight*	[...]
+}
+ConferenceInfo{
+id*	[...]
+sourceId*	[...]
+name*	[...]
+abbreviation*	[...]
+shortName*	[...]
+}
+ConferenceHistory{
+id*	[...]
+sourceId*	[...]
+name*	[...]
+abbreviation*	[...]
+shortName*	[...]
+teams*	[...]
+}

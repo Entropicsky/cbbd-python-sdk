@@ -1,0 +1,26 @@
+
+I want to build out a world-class Python SDK for the @CFBD college basketball API. 
+
+I have a key in the @.env file under CFBD_API_KEY
+
+I want to build out a complete SDK that wraps this API in a Python Class. This would include functions to call the different base endpoints of the API, but I really want to make this the easiest possible SDK to use by combining data that would typically take multiple API calls into a single response with a nested JSON. For example, if I called a getTeamSeason function with a team and a year, it would pull all the info about the Team, the Conference the team is in, their games that season, their roster that season, etc, into a single packaged response. 
+
+We then also need to have world-class documentation for this API. This needs to wind up being the definitive way for hobbyists to access college basketball statistics. 
+
+To build this SDK out, we're going to have be incredibly methodical. Have a well thought out plan for how to attack it and then go function by function. We'll need to have a test harness that allows us to test each function, and a library of sample responses so that we know the expected structure of the responses and can debug. 
+
+1) We need to first fully document and understand the API: 
+a) I have a file in the api_docs directory called @swaggerscrape.txt that is just a quick dump from the website of the swagger info
+b)  When need to further document by asking Perplexity to research everything it can about the CFBB College Basketball API found at https://api.collegebasketballdata.com/#/  and then save off it's documents in md format in a api_docs folder. 
+c) You can also ask the Firecrawl MCP to crawl specific sites such as @https://api.collegebasketballdata.com/#/ to get additional info. Put all documentation in the api_docs folderd) IMPORTANTLY: In addition to this API documentation, there is an existing Github Repo from someone else that has attempted to make a basic SDK for this API. We should study that thoroughly using Perplexity and Firecrawl to make sure our SDK has full coverage of all the aspects of this kit. We will eventually differentiate our SDK by having more advanced functions added to our SDK that combines data from across the different endpoints in different ways and improves the response structure in ways that will be easier to use for data analyts and website consumers. Here is the Github repository to fully explore with Perplexity, Firecrawl, and the other tools available to you: https://github.com/CFBD/cbbd-python
+
+2) Once you have researched  the API, you should build some quick example usage scripts to put in the api_docs folder that just demonstrate usage of the API in a simple test like way to confirm our understanding is correct of the API, make sure we understand the proper response structure of each endpoint, etc. Use this to complete even fuller and more documentation.  I DON’T WANT TO CREATE OUR PLAN FOR THE SDK UNTIL WE FULLY UNDERSTAND AND HAVE TESTED THE SDK. 3) IMPORTANT NOTE AS YOU DO STEPS 1 &2: As you are learning about and testing the SDK, you need to make concise notes to yourself that list all of the endpoints that we need to have coverage of and about what you discover about each endpoint —> all the info that you will need to consider when building out your design doc for the SDK. Otherwise, you will learn things that we forget to incorporate! Make this a sdk_notes.md file in the agent_notes directory. 
+
+4) Once you have tested the API and completed the thorough documentation, then start to build out a comprehensive design and plan for the SDK. Create a comprehensive plan and design document for constructing the SDK, including an architecture plan, a technical design doc, a project checklist, a testing plan etc. Put these plan documents in the agent_notes folder along with your other notes so that we can build out our plan and stay on track. 
+
+5) Once we have the plan we will want to go step by step through each component. It will be CRITICAL that, before we move from one step to the next, that we do full functional, unit and integration testing of that feature. We need to build this brick by brick and ensure each brick is solid before we add the next brick --> not code a bunch of stuff all at once praying it comes together. 
+
+We will want to go step by step and verify each step. 
+
+Before you start this effort, list 10 questions to explore related to this update, only keeping a minimum draft for each question of 5 words at most to represent the question. Then think very deeply about each question step by step, breaking each up into your own set of at least 8 and up to 14 "thinking questions" to dig deeper into. But only keep a minimum draft for each question of 5 words at most to represent the question.
+Then let's get to work. As you go along, make sure we have the maximum debug infrastructure and testing frameworks in place so that you can unit/integration test everything before you give it to me to test. Create a methodical plan and execute it step by step. Make sure all questions are answered by the end.
