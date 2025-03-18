@@ -15,6 +15,15 @@ A Python Software Development Kit (SDK) for the [College Basketball Data (CBBD) 
 - 🔒 Proper authentication handling
 - 💾 Caching support to reduce API calls
 - 🔧 Data transformation utilities for pandas integration
+- 🧪 Robust testing framework for API integration
+
+## Recent Updates
+
+- Added `ConferenceSeason` class for comprehensive conference season data
+- Enhanced field handling for camelCase API responses
+- Fixed conference game counting in the Streamlit app
+- Added comprehensive test scripts for API data validation
+- Implemented special handling for the SEC conference 2024-2025 seasons
 
 ## Installation
 
@@ -39,6 +48,15 @@ for team in teams:
 games = client.games.get_games(team="Duke", season=2023)
 for game in games:
     print(f"{game.away_team} @ {game.home_team}: {game.away_points}-{game.home_points}")
+    
+# Get comprehensive conference season profile
+conference_profile = client.advanced.conference_season.get_profile(
+    conference="SEC",
+    season=2023
+)
+print(f"Conference: {conference_profile['conference']['name']}")
+print(f"Teams: {len(conference_profile['teams'])}")
+print(f"Games: {len(conference_profile['games'])}")
 ```
 
 ## Authentication
@@ -89,20 +107,28 @@ The SDK also provides advanced functionality that combines multiple API endpoint
 - **Team Season Profile**: Comprehensive team season data
 - **Player Season Profile**: Comprehensive player season data
 - **Game Analysis**: Detailed game analysis
+- **Conference Season Profile**: Complete conference season data including games and standings
 
-### Example: Team Season Profile
+### Example: Conference Season Profile
 
 ```python
-# Get comprehensive team season profile
-profile = client.advanced.team_season.get_profile(
-    team="Duke",
-    season=2023
+# Get comprehensive conference season profile
+profile = client.advanced.conference_season.get_profile(
+    conference="SEC",
+    season=2025
 )
 
 # Access different aspects of the profile
-print(f"Team: {profile['team']['name']}")
-print(f"Record: {len([g for g in profile['games'] if g['home_winner'] or g['away_winner']])}-{len(profile['games']) - len([g for g in profile['games'] if g['home_winner'] or g['away_winner']])}")
-print(f"Average Points: {sum(stat['points'] for stat in profile['stats']) / len(profile['stats']):.1f}")
+print(f"Conference: {profile['conference']['name']}")
+print(f"Teams: {len(profile['teams'])}")
+
+# Count conference games
+conference_games = [g for g in profile['games'] if g['conferenceGame'] == True]
+print(f"Conference Games: {len(conference_games)}")
+
+# View standings
+for team in profile['standings'][:3]:
+    print(f"{team['team']}: {team['conference_wins']}-{team['conference_losses']}")
 ```
 
 ## Data Transformation Utilities
@@ -127,35 +153,24 @@ plt.title('Average Height by Position')
 plt.show()
 ```
 
-### Available Transformers
+## Testing Framework
 
-- `teams_to_dataframe()`: Convert team data to DataFrame
-- `roster_to_dataframe()`: Convert roster data to DataFrame
-- `games_to_dataframe()`: Convert games data to DataFrame
-- `player_stats_to_dataframe()`: Convert player statistics to DataFrame
-- `rankings_to_dataframe()`: Convert rankings data to DataFrame
-- `ratings_to_dataframe()`: Convert ratings data to DataFrame
-- `lines_to_dataframe()`: Convert betting lines data to DataFrame
-- `plays_to_dataframe()`: Convert play-by-play data to DataFrame
+The SDK includes a comprehensive testing framework to ensure reliability:
 
-### DataFrame Utilities
+```
+tests/
+├── api_tests/             # Tests for API functionality
+│   ├── test_conference_fields.py
+│   ├── test_conference_season.py
+│   ├── test_game_fields.py
+│   └── test_sec_2025.py
+└── streamlit/            # Tests for Streamlit integration
+```
 
-```python
-# Make DataFrame visualization-ready
-viz_df = client.transformers.utils.make_visualization_ready(
-    df,
-    numeric_columns=['points', 'rebounds', 'assists'],
-    categorical_columns=['position', 'team']
-)
+Run the tests with:
 
-# Add calculated columns
-df_with_calcs = client.transformers.utils.add_calculated_columns(
-    viz_df,
-    {
-        'points_per_game': lambda df: df['points'] / df['games'],
-        'efficiency': lambda df: (df['points'] + df['rebounds'] + df['assists']) / df['minutes']
-    }
-)
+```bash
+python -m tests.api_tests.test_game_fields
 ```
 
 ## Caching
@@ -214,6 +229,7 @@ The demo app provides interactive examples of all the SDK's features, including:
 - Team and player data visualization
 - Game analysis
 - Statistical comparisons
+- Conference season visualization
 - Data transformation examples
 - API response inspection
 

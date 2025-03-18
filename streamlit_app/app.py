@@ -99,6 +99,7 @@ page = st.sidebar.selectbox(
         "Plays",
         "Lines",
         "Transformers",
+        "Conferences",
         "Advanced Analysis",
     ]
 )
@@ -108,7 +109,7 @@ st.sidebar.markdown("### Filters")
 
 season = st.sidebar.selectbox(
     "Season",
-    list(range(2025, 2010, -1)),
+    list(range(2025, 2010, -1)),  # Include 2024 and 2025 seasons
     index=0
 )
 
@@ -135,7 +136,7 @@ conference = st.sidebar.selectbox(
     "Conference",
     conferences if conferences else ["ACC", "SEC", "Big 12", "Big Ten", "Pac-12"],
     index=0 if DEFAULT_CONFERENCE in conferences else 0
-)
+) if page != "Conferences" else None
 
 # Main content
 if page == "Home":
@@ -2110,6 +2111,10 @@ elif page == "Advanced Analysis" and client:
                         )
                         
                         st.altair_chart(chart, use_container_width=True)
+                    
+                    # Raw Data Sample
+                    with st.expander("Raw Data Sample"):
+                        st.json(profile)
                 else:
                     st.warning(f"No team season profile found for {team} in {season}.")
         except Exception as e:
@@ -2168,6 +2173,10 @@ elif page == "Advanced Analysis" and client:
                                 st.altair_chart(chart, use_container_width=True)
                             
                             st.dataframe(game_stats_df)
+                        
+                        # Add Raw Data Sample expander
+                        with st.expander("Raw Data Sample"):
+                            st.json(profile)
                     else:
                         st.warning(f"No player season profile found for player ID {player_id} in {season}.")
             except Exception as e:
@@ -2241,6 +2250,10 @@ elif page == "Advanced Analysis" and client:
                             )
                             
                             st.altair_chart(chart, use_container_width=True)
+                        
+                        # Add Raw Data Sample expander
+                        with st.expander("Raw Data Sample"):
+                            st.json(analysis)
                     else:
                         st.warning(f"No game analysis found for game ID {game_id}.")
             except Exception as e:
@@ -2780,5 +2793,202 @@ elif page == "Lines" and client:
         st.text(traceback.format_exc())
 
 else:
-    if page != "Home":
+    if page == "Conferences":
+        try:
+            st.title("Conference Season Explorer")
+            st.markdown("Explore conference season data including standings, team stats, and conference games.")
+            
+            # Get conferences list
+            with st.spinner("Loading conferences..."):
+                conferences = client.conferences.get_conferences()
+                # Create a mapping of short names to full names
+                conference_map = {conf.abbreviation or conf.short_name: conf.name for conf in conferences if conf.abbreviation or conf.short_name}
+                # Sort by abbreviation/short name
+                conference_options = sorted(conference_map.keys())
+
+            # Select conference using short name
+            conference_abbr = st.sidebar.selectbox(
+                "Conference",
+                conference_options
+            )
+
+            # Display conference season profile
+            if conference_abbr:
+                # Map back to full name for API call
+                conference = conference_map[conference_abbr]
+                
+                with st.spinner(f"Loading conference season profile for {conference_abbr} ({season})..."):
+                    try:
+                        # Display debug information for understanding conference matching
+                        # Get conference info
+                        all_conferences = client.conferences.get_conferences()
+                        st.write(f"Searching for conference with abbreviation: '{conference_abbr}'")
+                        
+                        profile = client.advanced.conference_season.get_profile(
+                            conference=conference_abbr,
+                            season=season
+                        )
+                        
+                        if profile and profile.get('conference'):
+                            # Conference Information
+                            st.subheader(f"{conference_abbr} Conference ({season})")
+                            
+                            # Show warning only if we're using mock data
+                            if profile.get('is_mock_data', False):
+                                st.warning("⚠️ Showing mock data for this season")
+                            elif len(profile.get('teams', [])) > 0 and len(profile.get('games', [])) == 0:
+                                st.warning("⚠️ Limited historical data available - showing partially generated data")
+                            
+                            # Debug information about teams
+                            col1, col2, col3 = st.columns(3)
+                            with col1:
+                                st.metric("Teams", len(profile.get('teams', [])))
+                            with col2:
+                                st.metric("Games", len(profile.get('games', [])))
+                            with col3:
+                                st.metric("Standings", len(profile.get('standings', [])))
+                            
+                            # Basic conference info
+                            if 'conference' in profile and profile['conference']:
+                                expander = st.expander("Conference Information")
+                                with expander:
+                                    st.json(profile['conference'])
+                            
+                            # Conference Standings
+                            if 'standings' in profile and profile['standings']:
+                                st.markdown("### Conference Standings")
+                                
+                                # Extract relevant columns for standings
+                                standings_data = []
+                                for team_record in profile['standings']:
+                                    # Handle both string-based and object-based team structures
+                                    if isinstance(team_record.get('team'), dict):
+                                        # Object-based structure
+                                        team_name = team_record.get('team', {}).get('school', '')
+                                    else:
+                                        # String-based structure
+                                        team_name = team_record.get('team', '')
+                                        
+                                    conf_wins = team_record.get('conference_wins', 0)
+                                    conf_losses = team_record.get('conference_losses', 0)
+                                    total_wins = team_record.get('overall_wins', 0)
+                                    total_losses = team_record.get('overall_losses', 0)
+                                    
+                                    # Calculate win percentages
+                                    conf_total = conf_wins + conf_losses
+                                    conf_pct = conf_wins / conf_total if conf_total > 0 else 0
+                                    
+                                    overall_total = total_wins + total_losses
+                                    overall_pct = total_wins / overall_total if overall_total > 0 else 0
+                                    
+                                    standings_data.append({
+                                        'Team': team_name,
+                                        'Conference': f"{conf_wins}-{conf_losses}",
+                                        'Conf Win %': f"{conf_pct:.3f}",
+                                        'Overall': f"{total_wins}-{total_losses}",
+                                        'Overall Win %': f"{overall_pct:.3f}"
+                                    })
+                                
+                                # Create standings dataframe
+                                if standings_data:
+                                    standings_df = pd.DataFrame(standings_data)
+                                    # Sort by conference win percentage
+                                    standings_df = standings_df.sort_values(by='Conf Win %', ascending=False)
+                                    st.dataframe(standings_df, use_container_width=True)
+                                else:
+                                    st.info("No standings data available.")
+                            
+                            # Conference Teams
+                            if 'teams' in profile and profile['teams']:
+                                st.markdown("### Conference Teams")
+                                # Extract relevant team information
+                                teams_data = []
+                                for team in profile['teams']:
+                                    teams_data.append({
+                                        'School': team.get('school', ''),
+                                        'Mascot': team.get('mascot', ''),
+                                        'Abbreviation': team.get('abbreviation', ''),
+                                        'City': team.get('city', ''),
+                                        'State': team.get('state', '')
+                                    })
+                                
+                                if teams_data:
+                                    teams_df = pd.DataFrame(teams_data)
+                                    st.dataframe(teams_df, use_container_width=True)
+                                else:
+                                    st.info("No team data available.")
+                            
+                            # Conference Games
+                            if 'games' in profile and profile['games']:
+                                st.markdown("### Conference Games")
+                                games_df = pd.DataFrame(profile['games'])
+                                
+                                # Determine if we have conferenceGame field
+                                has_conference_game = 'conferenceGame' in games_df.columns
+                                has_conference_fields = ('homeConference' in games_df.columns and 
+                                                         'awayConference' in games_df.columns)
+                                has_team_fields = ('homeTeam' in games_df.columns and 
+                                                   'awayTeam' in games_df.columns)
+                                
+                                # Calculate conference games count
+                                conference_games_count = 0
+                                non_conference_games_count = 0
+                                
+                                if has_conference_game:
+                                    # Use conferenceGame field directly
+                                    conference_games_count = (games_df['conferenceGame'] == True).sum()
+                                    non_conference_games_count = len(games_df) - conference_games_count
+                                    conference_games = games_df[games_df['conferenceGame'] == True]
+                                    non_conference_games = games_df[games_df['conferenceGame'] == False]
+                                elif has_conference_fields:
+                                    # Use conference fields to determine conference games
+                                    same_conf_mask = games_df['homeConference'] == games_df['awayConference']
+                                    conference_games_count = same_conf_mask.sum()
+                                    non_conference_games_count = len(games_df) - conference_games_count
+                                    conference_games = games_df[same_conf_mask]
+                                    non_conference_games = games_df[~same_conf_mask]
+                                elif has_team_fields:
+                                    # Use team lists to determine conference games
+                                    team_names = [team.get('name', '') or team.get('school', '') for team in profile.get('teams', [])]
+                                    is_conference_game = games_df.apply(
+                                        lambda game: (game['homeTeam'] in team_names and game['awayTeam'] in team_names),
+                                        axis=1
+                                    )
+                                    conference_games_count = is_conference_game.sum()
+                                    non_conference_games_count = len(games_df) - conference_games_count
+                                    conference_games = games_df[is_conference_game]
+                                    non_conference_games = games_df[~is_conference_game]
+                                else:
+                                    # If no reliable way to determine, assume all are non-conference
+                                    st.warning("Could not determine conference/non-conference games due to missing fields")
+                                    conference_games = pd.DataFrame()
+                                    non_conference_games = games_df
+                                
+                                # Display game counts
+                                col1, col2, col3 = st.columns(3)
+                                
+                                with col1:
+                                    st.metric("Total Games", len(games_df))
+                                
+                                with col2:
+                                    st.metric("Conference Games", conference_games_count)
+                                
+                                with col3:
+                                    st.metric("Non-Conference Games", non_conference_games_count)
+                                
+                            # Add a Raw Data Sample expander
+                            with st.expander("Raw Data Sample"):
+                                st.json(profile)
+                        else:
+                            st.warning(f"No data found for {conference_abbr} in season {season}.")
+                    except Exception as e:
+                        st.error(f"Error loading conference data: {e}")
+                        import traceback
+                        st.text(traceback.format_exc())
+        except Exception as e:
+            st.error(f"Error loading conferences: {e}")
+            import traceback
+            st.text(traceback.format_exc())
+    
+    elif page != "Home":
         st.warning("Please enter a valid API key to use this page.") 

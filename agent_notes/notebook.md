@@ -340,4 +340,246 @@ Today we performed a comprehensive code review of the project and prepared it fo
    - Set up branch protection rules
    - Complete remaining tasks in the project_checklist.md
    - Continue enhancing the Streamlit app with more features
-   - Add comprehensive testing for all components 
+   - Add comprehensive testing for all components
+
+## 2024-03-17: Initial SDK Setup
+- Created basic project structure
+- Implemented core client with authentication
+- Added initial API wrappers
+- Created data models for API responses
+- Implemented error handling and retries
+- Added caching mechanism
+
+## 2024-03-17: Streamlit App Development
+- Set up Streamlit app structure
+- Created pages for each API endpoint
+- Added basic visualizations
+- Implemented interactive controls
+- Added raw data sample sections
+
+## 2024-03-17: Transformers Implementation
+- Designed transformer architecture
+- Implemented base transformer class
+- Created DataFrame utilities
+- Added transformers for each API endpoint
+- Implemented NULL value cleaning
+- Built visualization-ready data converters
+
+## 2024-03-17: Rebranding and Repository Setup
+- Renamed from CFBD to CBBD throughout the codebase
+- Fixed bug in Rankings page
+- Fixed bug in Lines page
+- Fixed bug in Plays page
+- Set up GitHub repository
+- Updated repository links in setup.py
+
+## 2024-03-17: Streamlit Testing Framework
+- Created comprehensive testing framework using streamlit.testing.v1.AppTest
+- Implemented mock client and data fixtures for testing without hitting the real API
+- Created tests for all Streamlit app pages (Teams, Games, Rankings, Ratings, Plays, Lines)
+- Added tests for error handling and navigation
+- Set up test runner script
+- Added detailed mock data for testing all API endpoints
+- Created fixtures for API responses and DataFrame transformations
+- Implemented mock advanced module functionality
+
+### Benefits of the New Testing Framework
+- Can run headless tests of the Streamlit app without manual interaction
+- Allows automated verification of UI components and behavior
+- Can catch bugs in the app before they affect users
+- Enables testing of different interaction paths
+- Provides a way to test error handling
+- Avoids hitting the real API during testing
+
+### Technical Implementation Details
+- Using streamlit.testing.v1.AppTest for headless testing
+- pytest for test organization and execution
+- unittest.mock for mocking the client and API responses
+- Created fixtures directory with detailed mock data
+- Implemented complete MockCBBDClient class that mimics real client behavior
+- Added specific tests for each page's unique functionality
+
+### Next Steps for Testing
+- Run the tests to identify any remaining bugs in the app
+- Fix issues discovered by the testing framework
+- Add more edge case tests
+- Integrate with CI/CD pipeline when it's set up
+- Expand test coverage to include more interactions
+
+## 2025-03-17: Added Conference Season Feature and Fixed Tests
+
+Today we made several significant improvements to the CBBD Python SDK project:
+
+1. **Added Conference Season Functionality**:
+   - Created a new `ConferenceSeason` class in `cbbd/advanced/conference_season.py`
+   - Added it to the `AdvancedAPI` class in `cbbd/advanced/__init__.py`
+   - Implemented a comprehensive `get_profile` method that compiles conference data including teams, games, and standings
+
+2. **Added Conferences Page to Streamlit App**:
+   - Added "Conferences" to the navigation in the Streamlit app
+   - Implemented a page that displays conference information, standings, teams, and games
+   - Created a responsive UI with metrics and data tables
+
+3. **Fixed and Extended Testing Framework**:
+   - Added a test for the new Conferences page
+   - Fixed issues with existing tests including the plays_page test
+   - Made the testing framework more robust by ensuring all 10 tests pass consistently
+   - Added conference mock data to support testing
+
+4. **API Testing Mode**:
+   - Updated the test runner to load environment variables from .env file
+   - Added support for testing with either mock data or real API
+   - Successfully tested with both mock data and the real API
+
+The Conference Season feature provides a comprehensive view of a conference's performance in a given season, including standings, team records, and conference games. This feature is now fully integrated into both the SDK and the Streamlit app.
+
+All tests are now passing, which ensures the stability of the application as we continue to add features.
+
+## Updated Conference Season Implementation - 2024-06-13
+
+Improved the `ConferenceSeason` class to better handle data for future seasons (2024, 2025):
+
+1. **Enhanced Future Season Data Handling**:
+   - Modified the API call strategy for future seasons to get more accurate data
+   - Now retrieves all teams for future seasons first, then filters by conference
+   - For games, retrieves all games and filters them by conference teams
+   - Properly marks games as conference games when both teams belong to the same conference
+
+2. **Dynamic Mock Data Usage**:
+   - The app now attempts to fetch real data for ALL seasons (including 2024-2025)
+   - Only falls back to mock data when real data is not available
+   - Added an `is_mock_data` flag to indicate when mock data is being used
+   - Updated UI to only show "mock data" warning when actual mock data is being used
+
+These changes ensure that as real data becomes available for future seasons, the app will seamlessly start using it without requiring code changes.
+
+## API Field Format Discoveries
+
+- The CBBD API returns field names in camelCase, not snake_case:
+  - `homeTeam` instead of `home_team`
+  - `awayTeam` instead of `away_team`
+  - `homePoints` instead of `home_points`
+  - `awayPoints` instead of `away_points`
+  - `startDate` instead of `start_date`
+  - `conferenceGame` instead of `conference_game`
+  - `homeConference` instead of `home_conference`
+  - `awayConference` instead of `away_conference`
+
+- The API now has a useful field `conferenceGame` that directly indicates if a game is a conference game.
+
+## API Method Parameter Names
+
+- Parameter names for API methods must match exactly what the underlying API expects:
+  - `client.teams.get_teams(season=2023)` - Use `season` not `year`
+  - `client.games.get_games(season=2023, team="Kentucky")` - Use `season` not `year`
+
+## Object Access vs Dictionary Access
+
+- The API client can return data in two different formats:
+  1. Model Objects: Class instances with attribute access (e.g., `conf.name`, `team.school`)
+  2. Dictionaries: With key access (e.g., `conf.get('name')`, `team.get('school')`)
+
+- Our code now handles both formats by:
+  - Checking if attributes exist using `hasattr()` before attempting attribute access
+  - Falling back to dictionary-style access when not dealing with objects
+  - Converting objects to dictionaries with `to_dict()` when available
+  - Using conditional logic to determine the access pattern for each entity
+
+## Conference Game Detection
+
+Implemented a multi-method approach for detecting conference games:
+1. First try using the `homeConference` and `awayConference` fields if available
+2. Then fall back to checking if both teams are in the conference's team list
+3. Finally use the `conferenceGame` field if available
+
+## SEC Team Special Handling
+
+For the 2024-2025 seasons, implemented special handling for SEC teams:
+- Created a hardcoded list of SEC teams for these seasons
+- Added fallback logic to identify conference games for these teams
+
+## Testing
+
+Successfully tested conference data display in multiple ways:
+1. Direct API inspection test to verify field names and formats
+2. Full app integration test to verify display and functionality
+3. Fixed tests to use the correct camelCase field names
+
+## Mock vs Real API Testing
+
+- Mock API tests now pass
+- Real API tests also pass using the API key from the .env file
+- Tests properly load environment variables from the .env file
+
+# CBBD Project Notebook
+
+## API Response Structure and Insights
+
+### Conference Data
+- Conferences have `id`, `sourceId`, `name`, `abbreviation`, and `shortName` attributes
+- Example SEC conference: `{'id': 24, 'sourceId': '23', 'name': 'Southeastern Conference', 'abbreviation': 'SEC', 'shortName': 'SEC'}`
+
+### Team Data
+- Teams have `name` attribute (not `school`) for the team name
+- Teams have `conference` (string like "SEC") and `conference_id` (numeric like 24) attributes
+- SEC conference had 14 teams in 2023 season, 16 teams in 2025 season (added Oklahoma and Texas)
+- Example team data:
+```
+{
+  'id': 264, 
+  'sourceId': '2561', 
+  'school': 'Siena', 
+  'mascot': 'Saints', 
+  'abbreviation': 'SIE', 
+  'displayName': 'Siena Saints', 
+  'shortDisplayName': 'Siena', 
+  'primaryColor': '037961', 
+  'secondaryColor': 'eea60f', 
+  'currentVenueId': 71, 
+  'currentVenue': 'MVP Arena', 
+  'currentCity': 'Albany', 
+  'currentState': 'NY', 
+  'conferenceId': 16, 
+  'conference': 'MAAC'
+}
+```
+
+### Game Data
+- Game data uses camelCase field names
+- `conferenceGame` is a boolean field (not string or numeric)
+- SEC 2025 season had 159 conference games and 220 non-conference games
+- Complete game field list: 
+```
+['id', 'sourceId', 'seasonLabel', 'season', 'seasonType', 'tournament', 'startDate', 'startTimeTbd', 'neutralSite', 'conferenceGame', 'gameType', 'status', 'gameNotes', 'attendance', 'homeTeamId', 'homeTeam', 'homeConferenceId', 'homeConference', 'homeSeed', 'homePoints', 'homePeriodPoints', 'homeWinner', 'awayTeamId', 'awayTeam', 'awayConferenceId', 'awayConference', 'awaySeed', 'awayPoints', 'awayPeriodPoints', 'awayWinner', 'excitement', 'venueId', 'venue', 'city', 'state']
+```
+
+## Debugging Techniques
+
+### Field Type Analysis
+When dealing with API response fields, it's important to check:
+1. Field name existence (`'conferenceGame' in games_df.columns`)
+2. Field data type (`games_df['conferenceGame'].dtype`)
+3. Value distribution (`games_df['conferenceGame'].value_counts()`)
+4. Presence of NaN values (`games_df['conferenceGame'].isna().sum()`)
+5. Actual sample values (including their Python types)
+
+### Boolean Field Handling
+For boolean fields like `conferenceGame`:
+1. Direct comparison: `(games_df['conferenceGame'] == True).sum()`
+2. Direct summing of boolean values: `games_df['conferenceGame'].astype(bool).sum()`
+3. Using DataFrame methods: `games_df['conferenceGame'].eq(True).sum()`
+
+### Data Verification
+To ensure data correctness:
+1. Cross-check related fields (e.g., conferenceGame vs. home/away conference)
+2. Check for inconsistencies (games marked as conference but teams from different conferences)
+3. Test at different seasons and with different conferences
+4. Implement multiple methods of calculation and compare results
+
+## Streamlit App Findings
+- The app needed proper handling of boolean type for `conferenceGame` field
+- Direct count using `(games_df['conferenceGame'] == True).sum()` works reliably
+- Appropriate fallbacks needed when fields are missing:
+  1. Try conferenceGame field first
+  2. Then try homeConference/awayConference comparison
+  3. Finally try team name list filtering 
